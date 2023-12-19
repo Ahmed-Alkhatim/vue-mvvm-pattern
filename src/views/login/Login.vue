@@ -1,16 +1,33 @@
 <template>
-    <div class="w-50 m-auto">
-        <TextInput v-model = "userData.name" label="الاسم" />
+    
+    <div class="absolute-center">
+        <Card class="space-y-5 w-[500px]">
+            <img :src= "logo" class="w-20 h-20 block m-auto"/>
+            <h3 class="text-center text-[18px] font-bold">تسجيل الدخول</h3>
+            <TextInput v-model = "userData.name" label="الاسم" :error = 'errors.name'/>
+            <TextInput v-model = "userData.email" label="الايميل" :error = 'errors.email'/>
+            <Btn size="medium" color = 'blue' class="inline-block w-full">تسجيل الدخول</Btn>
+            <p class="paragraph">ليس لديك حساب؟ <RouterLink to="/register"><span class="link sm:inline-flex sm:ms-2 ">تسجيل حساب جديد</span></RouterLink></p>
+            <RouterLink to="/password-reset"><span class="link">نسيت كلمة المرور</span></RouterLink>
+        </Card>
     </div>
 </template>
 
 <script setup>
-import { TextInput } from "@/components"
+import { TextInput, Card, Btn } from "@/components"
 import { reactive } from "vue";
-
+import logo from "@/assets/images/logo.png"
 const userData = reactive({
-    'name': null,
+    name: null,
+    email : null,
 })
+
+const errors = {
+    name: null,
+    email : null,
+}
+
+
 </script>
 
 <style lang="scss" scoped> 

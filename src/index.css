@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components { 
+    .absolute-center {
+        @apply absolute bottom-1/2 right-1/2 translate-x-1/2 translate-y-1/2
+    }
+    .paragraph {
+        @apply mb-3 text-gray-500 dark:text-gray-400
+    }
+    .link {
+        @apply font-medium text-blue-600 dark:text-blue-500 hover:underline
+    }
+}
