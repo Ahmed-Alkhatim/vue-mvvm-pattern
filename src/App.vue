@@ -3,7 +3,9 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <RouterView />
+  <div id = "app" dir="rtl">
+    <RouterView />
+  </div>
 </template>
 
 
