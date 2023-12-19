@@ -3,9 +3,7 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <div dir="rtl" class="w-screen h-screen bg-stone-50">
     <RouterView />
-  </div>
 </template>
 
 <style>
@@ -15,5 +13,8 @@ html {
 @font-face {
   font-family: mainF;
   src: url("./NeoSansArabic.ttf");
+}
+.main  {
+  overflow: hidden;
 }
 </style>
