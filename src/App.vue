@@ -3,7 +3,9 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
+  <div dir="rtl" class=" main w-screen h-screen bg-stone-50">
     <RouterView />
+  </div>
 </template>
 
 <style>
