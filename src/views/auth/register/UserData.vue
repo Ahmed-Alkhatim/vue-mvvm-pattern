@@ -10,7 +10,7 @@
             <NumberInput label = "رقم الهاتف" />
             
             <div class="grid grid-cols-2 gap-2">
-                <SelectInput v-model="userData.id_type" options = "[{id : '1', value : 'الاسم'}]" label = "نوع الهوية" />
+                <SelectInput v-model="userData.id_type" :options = "[{id : '1', value : 'الاسم'}]" label = "نوع الهوية" />
                 <NumberInput label = "رقم الهوية" />
             </div>
             
