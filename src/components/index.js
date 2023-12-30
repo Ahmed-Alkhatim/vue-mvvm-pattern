@@ -8,7 +8,7 @@ import SelectInput from "./form/SelectInput.vue"
 import DropDown from "./ui/DropDown.vue"
 import VTable from './ui/VTable.vue'
 import Dialog from './ui/Dialog.vue'
-import Sidebar from "./Sidebar.vue"
+import PageContainer from "./PageContainer.vue"
 import Navbar from "./Navbar.vue"
 
-export { TextInput, Card, Btn, RadioInput, DateInput, NumberInput, SelectInput, VTable, Dialog, Sidebar, Navbar, DropDown }
+export { TextInput, Card, Btn, RadioInput, DateInput, NumberInput, SelectInput, VTable, Dialog, PageContainer, Navbar, DropDown }

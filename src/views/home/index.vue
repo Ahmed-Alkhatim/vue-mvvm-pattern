@@ -1,12 +1,14 @@
 <template>
     <div>
         <!-- <Navbar /> -->
-        <Sidebar />
+        <PageContainer>
+            <VTable />
+        </PageContainer>
     </div>
 </template>
 
 <script setup>
-import { Sidebar, Navbar } from "@/components"
+import { PageContainer,  VTable} from "@/components"
 </script>
 
 <style lang="scss" scoped>
