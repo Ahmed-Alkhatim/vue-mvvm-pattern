@@ -5,8 +5,10 @@ import RadioInput from "./form/RadioInput.vue"
 import DateInput from "./form/DateInput.vue"
 import NumberInput from "./form/NumberInput.vue"
 import SelectInput from "./form/SelectInput.vue"
+import DropDown from "./ui/DropDown.vue"
 import VTable from './ui/VTable.vue'
 import Dialog from './ui/Dialog.vue'
+import Sidebar from "./Sidebar.vue"
+import Navbar from "./Navbar.vue"
 
-
-export { TextInput, Card, Btn, RadioInput, DateInput, NumberInput, SelectInput, VTable, Dialog }
+export { TextInput, Card, Btn, RadioInput, DateInput, NumberInput, SelectInput, VTable, Dialog, Sidebar, Navbar, DropDown }
