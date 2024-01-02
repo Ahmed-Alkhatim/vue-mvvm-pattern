@@ -27,6 +27,42 @@ const router = createRouter({
       name: 'password-reset',
       component: PasswordReset
     },
+    {
+      path: '/deals',
+      name: 'deals',
+      component: ''
+    },
+    {
+      path: '/settings',
+      name: 'settings',
+      component: ''
+    },
+    {
+      path: '/users',
+      name: 'users',
+      component: ''
+    },
+    {
+      path: '/branches',
+      name: 'branches',
+      component: ''
+    },
+    {
+      path: '/drivers',
+      name: 'drivers',
+      component: ''
+    },
+    // {
+    //   path: '/mr',
+    //   name: 'mr',
+    //   component: ''
+    // },
+    {
+      path: '/cpanel',
+      name: 'cpanel',
+      component: ''
+    },
+
   ]
 })
 

@@ -1,14 +1,23 @@
 <template>
     <div>
         <!-- <Navbar /> -->
-        <PageContainer>
-            <VTable />
-        </PageContainer>
+       
+            <Dialog v-model="isDialogVisible">
+                <template #activator>
+                    <Btn>Hello</Btn>
+                </template>
+                <Card>
+                    ll
+                </Card>
+            </Dialog>
+            <!-- <VTable /> -->
     </div>
 </template>
 
 <script setup>
-import { PageContainer,  VTable} from "@/components"
+import { ref } from "vue"
+import { PageContainer,  VTable, Dialog, Btn, Card } from "@/components"
+const isDialogVisible = ref(false)
 </script>
 
 <style lang="scss" scoped>

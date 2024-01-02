@@ -10,5 +10,6 @@ import VTable from './ui/VTable.vue'
 import Dialog from './ui/Dialog.vue'
 import PageContainer from "./PageContainer.vue"
 import Navbar from "./Navbar.vue"
+import Sidebar from "./Sidebar.vue"
 
-export { TextInput, Card, Btn, RadioInput, DateInput, NumberInput, SelectInput, VTable, Dialog, PageContainer, Navbar, DropDown }
+export { TextInput, Card, Btn, RadioInput, DateInput, NumberInput, SelectInput, VTable, Dialog, PageContainer, Navbar, DropDown, Sidebar }
