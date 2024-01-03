@@ -34,7 +34,8 @@ import logo from "@/assets/images/logo.png"
 
 const navigators = [
     { route: "/cpanel", name : "لوحة التحكم" },
-    { route: "/mr", name :  "المركبات" },
+    { route: "/vehicles", name :  "المركبات" },
+    { route: "/product", name :  "المنتجات" },
     { route: "/drivers", name :  "السائقين" },
     { route: "/branches", name :  "الفروع" },
     { route: "/users", name :  "المستخدمين" },

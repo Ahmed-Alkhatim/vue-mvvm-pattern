@@ -4,6 +4,9 @@ import PasswordReset from '@/views/auth/login/PasswordReset.vue'
 import Register from '@/views/auth/register/index.vue'
 import HomePage from "@/views/home/index.vue"
 import Drivers from "@/views/drivers/index.vue"
+import Vehicles from "@/views/vehicles/index.vue"
+import Branches from "@/views/branches/index.vue"
+import Product from "@/views/products/index.vue"
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -45,18 +48,23 @@ const router = createRouter({
     {
       path: '/branches',
       name: 'branches',
-      component: ''
+      component: Branches
+    },
+    {
+      path: '/product',
+      name: 'product',
+      component: Product
     },
     {
       path: '/drivers',
       name: 'drivers',
       component: Drivers
     },
-    // {
-    //   path: '/mr',
-    //   name: 'mr',
-    //   component: ''
-    // },
+    {
+      path: '/vehicles',
+      name: 'vehicles',
+      component: Vehicles
+    },
     {
       path: '/cpanel',
       name: 'cpanel',
