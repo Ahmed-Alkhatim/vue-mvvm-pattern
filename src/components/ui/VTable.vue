@@ -1,32 +1,30 @@
 <template>
-<div class="relative overflow-x-auto shadow-sd sm:rounded-lg">
-    <Btn size="x-small" color="primary">اضافة هثن</Btn>
-    <table class="w-full text-sm text-left rtl:text-right">
+
+
+<div class="relative overflow-x-auto  sm:rounded-lg">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
-                <th scope="col" class="px-6 py-3">
-                    Tite
+                <th scope="col" class="px-6 py-3" v-for = "head in heads">
+                    {{ head }}
                 </th>
             </tr>
         </thead>
         <tbody>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700" v-for="a in [1,2,3,4,5,6,]">
-                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                   value
-                </th>
-                
-            </tr>
+            <slot></slot>
         </tbody>
     </table>
 </div>
 
-
 </template>
 
 <script setup>
-import { Btn } from "@/components"
+
+const props =  defineProps(["heads"])
 </script>
 
-<style lang="scss" scoped>
-
+<style  >
+table td {
+    padding: 16px 24px;
+}
 </style>

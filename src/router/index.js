@@ -3,7 +3,7 @@ import Login from '@/views/auth/login/Login.vue'
 import PasswordReset from '@/views/auth/login/PasswordReset.vue'
 import Register from '@/views/auth/register/index.vue'
 import HomePage from "@/views/home/index.vue"
-
+import Drivers from "@/views/drivers/index.vue"
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -50,7 +50,7 @@ const router = createRouter({
     {
       path: '/drivers',
       name: 'drivers',
-      component: ''
+      component: Drivers
     },
     // {
     //   path: '/mr',

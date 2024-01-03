@@ -26,8 +26,8 @@ const getColor = (text)  => {
 const getSize = (text) => {
     const size = {
         'x-small' : 'px-3 py-2 text-xs',
-        'small' : 'px-3 py-2 text-sm',
-        'medium' : 'px-5 py-2.5 text-sm ',
+        'small' : 'px-[20px] py-[8px] text-sm font-bold',
+        'medium' : 'px-5 py-2.5 text-sm font-bold',
         'large' : 'px-5 py-3 text-base',
         'x-large' : 'px-6 py-3.5 text-base',
     }
