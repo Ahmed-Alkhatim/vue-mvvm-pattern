@@ -7,6 +7,8 @@ import Drivers from "@/views/drivers/index.vue"
 import Vehicles from "@/views/vehicles/index.vue"
 import Branches from "@/views/branches/index.vue"
 import Product from "@/views/products/index.vue"
+import Users from "@/views/users/index.vue"
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -43,7 +45,7 @@ const router = createRouter({
     {
       path: '/users',
       name: 'users',
-      component: ''
+      component: Users
     },
     {
       path: '/branches',

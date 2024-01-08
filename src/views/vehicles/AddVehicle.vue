@@ -12,11 +12,11 @@
                 <TextInput v-model="vehicleData.fuel_type" label = "نوع الوقود"  :error = "errors.fuel_type"/>
             <TextInput v-model="vehicleData.plate_number" label = "Plate number"  :error = "errors.plate_number"/>
             <div class = "flex justify-end">
-                    <div class = "mt-4">
-                        <Btn size = "small" color = "primary">إضافة</Btn>
-                        <Btn @click = "isDialogVisible = false" size = "small" color = "secondary">إلغاء</Btn>
-                    </div>
+                <div class = "mt-4">
+                    <Btn size = "small" color = "primary">إضافة</Btn>
+                    <Btn @click = "isDialogVisible = false" size = "small" color = "secondary">إلغاء</Btn>
                 </div>
+            </div>
         </Card>
     </Dialog>
 </template>
