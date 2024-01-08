@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class = "bg-white rounded-lg shadow-sm p-6 flex justify-between items-center">
+        <div class = "bg-white rounded-lg shadow p-6 flex justify-between items-center">
             <div class = "space-y-1">
                 <p class = "font-bold text-[17px]">{{ value }}</p>
                 <p class = "text-[14px] text-gray-400">{{ title }}</p>

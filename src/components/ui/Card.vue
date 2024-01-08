@@ -8,8 +8,9 @@
 
 <script setup>
 const props = defineProps(['title'])
+
 </script>
 
-<style lang="scss" scoped>
+<style  scoped>
 
 </style>
