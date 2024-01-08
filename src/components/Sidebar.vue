@@ -33,13 +33,12 @@
 import logo from "@/assets/images/logo.png"
 
 const navigators = [
-    { route: "/cpanel", name : "لوحة التحكم" },
-    { route: "/vehicles", name :  "المركبات" },
-    { route: "/product", name :  "المنتجات" },
-    { route: "/drivers", name :  "السائقين" },
+    { route: "/", name : " الصفحة الرئيسية" },
     { route: "/branches", name :  "الفروع" },
-    { route: "/users", name :  "المستخدمين" },
-    { route: "/settings", name :  "الإعدادات العامة" },
+    { route: "/vehicles", name :  "المركبات" },
+    { route: "/drivers", name :  "السائقين" },
+    { route: "/product", name :  "المنتجات" },
+    { route: "/users", name :  "الأعضاء" },
     { route: "/deals", name :  "المعاملات" }
 ]
 </script>
