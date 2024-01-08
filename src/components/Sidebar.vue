@@ -14,13 +14,46 @@
                 <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Petro Amyal</span>
             </a>
             <ul class="space-y-2 font-small text-[16px]">
-                <li v-for = "navigator in navigators">
-                    <RouterLink :to = "navigator.route" class="flex items-center p-2 text-gray-500 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                        <svg class="w-5 h-4 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-500 dark:group-hover:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
-                        <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z"/>
-                        <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z"/>
-                    </svg>
-                    <span class="ms-2">{{ navigator.name }}</span>
+                <li>
+                    <RouterLink to = "/" class="flex items-center p-2 text-gray-500 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <IconHome color="#888"  stroke-width="2"/>
+                    <span class="ms-2">الصفحة الرئيسية</span>
+                    </RouterLink>
+                </li>
+                <li>
+                    <RouterLink to = "/branches" class="flex items-center p-2 text-gray-500 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <IconLayersIntersect color="#888"  stroke-width="2"/>
+                    <span class="ms-2">الفروع</span>
+                    </RouterLink>
+                </li>
+                <li>
+                    <RouterLink to = "/vehicles" class="flex items-center p-2 text-gray-500 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <IconCar color="#888"  stroke-width="2"/>
+                    <span class="ms-2">المركبات</span>
+                    </RouterLink>
+                </li>
+                <li>
+                    <RouterLink to = "/drivers" class="flex items-center p-2 text-gray-500 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <IconRadar color="#888"  stroke-width="2"/>
+                    <span class="ms-2">السائقين</span>
+                    </RouterLink>
+                </li>
+                <li>
+                    <RouterLink to = "/product" class="flex items-center p-2 text-gray-500 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <IconDiscountCheck color="#888"  stroke-width="2"/>
+                    <span class="ms-2">المنتجات</span>
+                    </RouterLink>
+                </li>
+                <li>
+                    <RouterLink to = "/users" class="flex items-center p-2 text-gray-500 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <IconUsers color="#888"  stroke-width="2"/>
+                    <span class="ms-2">الأعضاء</span>
+                    </RouterLink>
+                </li>
+                <li>
+                    <RouterLink to = "/deals" class="flex items-center p-2 text-gray-500 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <IconTransitionLeft color="#888"  stroke-width="2"/>
+                    <span class="ms-2">المعاملات</span>
                     </RouterLink>
                 </li>
             </ul>
@@ -31,16 +64,8 @@
 
 <script setup>
 import logo from "@/assets/images/logo.png"
+import { IconHome, IconLayersIntersect, IconCar, IconRadar, IconDiscountCheck, IconUsers, IconTransitionLeft } from '@tabler/icons-vue';
 
-const navigators = [
-    { route: "/", name : " الصفحة الرئيسية" },
-    { route: "/branches", name :  "الفروع" },
-    { route: "/vehicles", name :  "المركبات" },
-    { route: "/drivers", name :  "السائقين" },
-    { route: "/product", name :  "المنتجات" },
-    { route: "/users", name :  "الأعضاء" },
-    { route: "/deals", name :  "المعاملات" }
-]
 </script>
 
 <style lang="scss" scoped>
