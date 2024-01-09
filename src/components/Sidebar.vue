@@ -51,7 +51,7 @@
                     </RouterLink>
                 </li>
                 <li>
-                    <RouterLink to = "/deals" class="flex items-center p-2 text-gray-500 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                    <RouterLink to = "/transactions" class="flex items-center p-2 text-gray-500 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
                         <IconTransitionLeft color="#888"  stroke-width="2"/>
                     <span class="ms-2">المعاملات</span>
                     </RouterLink>
