@@ -7,6 +7,7 @@ import Drivers from "@/views/drivers/index.vue"
 import Vehicles from "@/views/vehicles/index.vue"
 import Branches from "@/views/branches/index.vue"
 import Product from "@/views/products/index.vue"
+import Transactions from "@/views/transactions/index.vue"
 import Users from "@/views/users/index.vue"
 
 const router = createRouter({
@@ -31,11 +32,6 @@ const router = createRouter({
       path: '/password-reset',
       name: 'password-reset',
       component: PasswordReset
-    },
-    {
-      path: '/deals',
-      name: 'deals',
-      component: ''
     },
     {
       path: '/settings',
@@ -71,6 +67,11 @@ const router = createRouter({
       path: '/cpanel',
       name: 'cpanel',
       component: ''
+    },
+    {
+      path: '/transactions',
+      name: 'Transactions',
+      component: Transactions
     },
 
   ]
