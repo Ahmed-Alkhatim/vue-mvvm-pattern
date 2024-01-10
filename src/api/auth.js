@@ -17,7 +17,9 @@ class Auth extends EventTarget {
         }
     }
 
-    register = async() => {
+    register = async(data) => {
+        this.dispatchEvent(new CustomEvent('registerSuccess', { detail: {} }))
+
         const { response, error, getData } = useFetcher(usePost)
         await getData("/register", data)
         if(response.value && response.value?.status?.code == 200){

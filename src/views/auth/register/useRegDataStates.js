@@ -4,7 +4,6 @@ const useRegDataStates = () => {
 
 //  States
     const registerationData  = reactive({ type : "", name : "", phone : "", company_name : "", public_name : "", commercial_record : "", tax_number : "", type : "", birth_date : "", id_number : "", identity_type : "", email : "", password : "", password_confirmation : ""})
-    const errors = reactive({ type : "", name : "", phone : "", company_name : "", public_name : "", commercial_record : "", tax_number : "", type : "", birth_date : "", id_number : "", identity_type : "", email : "", password : "", password_confirmation : ""})
    
 //  Actions
     const setType = (type) => {
@@ -12,7 +11,7 @@ const useRegDataStates = () => {
     }
     
 // 
-    return { registerationData, errors , setType }
+    return { registerationData, setType }
 }
 
 export default useRegDataStates

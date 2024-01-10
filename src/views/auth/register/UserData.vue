@@ -23,10 +23,14 @@
 <script setup>
 import { inject, reactive } from "vue"
 import { TextInput, DateInput, NumberInput, Btn, SelectInput } from "@/components"
-const registerationData = inject('registerationData')
 
+// Props && Emit && Ineject
+const registerationData = inject('registerationData')
+const emit = defineEmits(['complete'])
+
+// Functions
 const register = () => {
-    completeRegistration()
+    emit('complete')
 }
 </script>
 

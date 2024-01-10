@@ -16,22 +16,25 @@ import UserData from "./UserData.vue";
 import useRegApiStates from "./useRegApiStates";
 import useRegDataStates from "./useRegDataStates";
 
-// States
+// UI States
 const currentStep = ref(1)
 const goToNextStep = (step) => {
     currentStep.value = step
 }
 
+// Data & Api 
 const { registerationData, setType } = useRegDataStates()
 const { registerUser, inputsError } = useRegApiStates()
 
-provide('registerationData', registerationData)
-provide('inputsError', inputsError)
-provide('setType', setType)
-
+// Functions
 const completeRegistration = () => {
     registerUser(registerationData)
 }
+
+// Provides
+provide('registerationData', registerationData)
+provide('inputsError', inputsError)
+provide('setType', setType)
 
 </script>
 

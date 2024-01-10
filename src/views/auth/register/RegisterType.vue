@@ -15,10 +15,12 @@
 import { RadioInput, Btn } from "@/components"
 import { inject } from "vue";
 
-// const props = defineProps(['currentStep'])
+// Emits && Props && Injects && Stores
 const emit =  defineEmits(['complete'])
 const setType = inject('setType')
 
+
+// Functions
 const saveData = () => {
     emit('complete')
 }
