@@ -17,8 +17,9 @@
 import { TextInput, PasswordInput,  Card, Btn } from "@/components"
 import { reactive } from "vue";
 import logo from "@/assets/images/logo.png"
-import { logInApi } from "@/api"
-
+import { auth } from "@/api"
+import { useRouter } from "vue-router";
+const router = useRouter()
 const userData = reactive({
     password: null,
     email : null,
@@ -29,18 +30,20 @@ const errors = reactive({
     email : null,
 })
 
-logInApi.on('loggedSuccess', (e) => {
+auth.on('loggedSuccess', (e) => {
    localStorage.setItem('token', e.detail.token)
    localStorage.setItem('user', e.detail.user)
+   router.push('/')
+
 })
-logInApi.on('loggingFail', (e) => {
+auth.on('loggingFail', (e) => {
     console.log('logged failed', e.detail);
     Object.assign(errors, e.detail);
 });
 
-const logIn = () => [
-    logInApi.login(userData)
-]
+const logIn = () => {
+    auth.login(userData)
+}
 
 </script>
 

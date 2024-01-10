@@ -1,2 +1,2 @@
-import logInApi from "./login"
-export { logInApi }
+import auth from "./auth"
+export { auth }

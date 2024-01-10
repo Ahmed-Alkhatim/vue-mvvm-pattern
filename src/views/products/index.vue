@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <PageContainer>
         <div>
             <AddProduct />
         </div>
@@ -15,13 +15,14 @@
             </VTableRow>
         </VTable>
         </div>
-    </div>
+    </PageContainer>
     </template>
     
     <script setup>
     import { VTable, VTableRow } from "@/components"
     import AddProduct from "./AddProduct.vue";
     import { useProductsStore } from "@/stores"
+    import PageContainer from '@/components/PageContainer.vue';
 
     // Stores
     const productsStore = useProductsStore()

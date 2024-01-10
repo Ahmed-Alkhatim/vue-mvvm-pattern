@@ -1,6 +1,6 @@
 import { useFetcher, usePost, useGet } from "@/composables"
 
-class LogInApi extends EventTarget {
+class Auth extends EventTarget {
     constructor(){
         super();
     }
@@ -18,9 +18,15 @@ class LogInApi extends EventTarget {
     }
 
     register = async() => {
-
+        const { response, error, getData } = useFetcher(usePost)
+        await getData("/register", data)
+        if(response.value && response.value?.status?.code == 200){
+            this.dispatchEvent(new CustomEvent('registerSuccess', { detail: response.value.data }))
+        } else if(error.value && error.value.response?.status == 422) {
+            this.dispatchEvent(new CustomEvent('registerFail', { detail: error.value.response.data.errors }))
+        }
     }
 }
 
-const logInApi = new LogInApi()
-export default logInApi
+const auth = new Auth()
+export default auth

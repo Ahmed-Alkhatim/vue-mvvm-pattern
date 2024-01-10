@@ -2,32 +2,31 @@
     <div class="w-1/3 flex justify-center m-auto">
         <div class="w-full mt-20 space-y-4">
             <div class="grid grid-cols-2 gap-2">
-                <TextInput label = "اسم المستخدم" />
-                <DateInput label = 'تاريخ الميلاد'/>
+                <TextInput v-model = "registerationData.name" label = "اسم المستخدم" />
+                <DateInput v-model = "registerationData.birth_date" label = 'تاريخ الميلاد'/>
             </div>
-            <SelectInput label = "نوع المستخدم"  :options = "[{id : '1', value : 'الاسم'}]" />
-            <TextInput label = "الايميل" />
-            <NumberInput label = "رقم الهاتف" />
+            <SelectInput v-model = "registerationData.type" label = "نوع المستخدم"  
+                :options = "[{id : 'مقدم خدمات', value : 'مقدم خدمات'}, {id : 'مستهلك', value : 'مستهلك'}, {id : ' فرد', value : 'فرد'}]" 
+            />
+            <TextInput v-model = "registerationData.email" label = "الايميل" />
+            <NumberInput v-model = "registerationData.phone" label = "رقم الهاتف" />
             
             <div class="grid grid-cols-2 gap-2">
-                <SelectInput v-model="userData.id_type" :options = "[{id : '1', value : 'الاسم'}]" label = "نوع الهوية" />
-                <NumberInput label = "رقم الهوية" />
+                <SelectInput v-model = "registerationData.identity_type"  :options = "[{id : 'مواطن', value : 'مواطن'}, {id : 'مقيم', value : 'مقيم'}]" label = "نوع الهوية" />
+                <NumberInput v-model = "registerationData.id_number" label = "رقم الهوية" />
             </div>
-            
-                <Btn class="w-full" size = "small" color = "blue" @click = "saveData()">تسجيل</Btn>
+                <Btn class="w-full" size = "small" color = "blue" @click = "register()">تسجيل</Btn>
         </div>
     </div>
 </template>
 
 <script setup>
-import { reactive } from "vue"
+import { inject, reactive } from "vue"
 import { TextInput, DateInput, NumberInput, Btn, SelectInput } from "@/components"
+const registerationData = inject('registerationData')
 
-const userData = reactive({
-    id_type : ""
-})
-const saveData = () => {
-    
+const register = () => {
+    completeRegistration()
 }
 </script>
 
