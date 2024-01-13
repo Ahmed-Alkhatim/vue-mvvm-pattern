@@ -13,7 +13,7 @@ const props = defineProps(['size', 'color'])
 
 const getColor = (text)  => {
     const color = {
-        primary : 'text-white bg-blue-700 hover:bg-blue-800',
+        primary : 'text-white bg-[#092635] hover:bg-[#1B4242]',
         secondary : 'text-white bg-gray-800 hover:bg-gray-900',
         success  : 'text-white bg-green-700  hover:bg-green-800',
         error : ' text-white bg-red-700 hover:bg-red-800',
