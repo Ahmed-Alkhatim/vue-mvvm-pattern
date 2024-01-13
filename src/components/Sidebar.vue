@@ -15,44 +15,44 @@
             </a>
             <ul class="space-y-2 font-small text-[16px]">
                 <li>
-                    <RouterLink to = "/" class="flex items-center p-2 text-gray-500 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                        <IconHome color="#888"  stroke-width="2"/>
+                    <RouterLink to = "/" :class = "{'active' : route.path == '/'}" class=" flex items-center p-2 text-gray-500 rounded-lg dark:text-white  group  hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <IconHome   stroke-width="2"/>
                     <span class="ms-2">الصفحة الرئيسية</span>
                     </RouterLink>
                 </li>
                 <li>
-                    <RouterLink to = "/branches" class="flex items-center p-2 text-gray-500 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                        <IconLayersIntersect color="#888"  stroke-width="2"/>
+                    <RouterLink to = "/branches" :class = "{'active' : route.path == '/branches'}" class="flex items-center p-2 text-gray-500 rounded-lg dark:text-white  group  hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <IconLayersIntersect  stroke-width="2"/>
                     <span class="ms-2">الفروع</span>
                     </RouterLink>
                 </li>
                 <li>
-                    <RouterLink to = "/vehicles" class="flex items-center p-2 text-gray-500 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                        <IconCar color="#888"  stroke-width="2"/>
+                    <RouterLink to = "/vehicles" :class = "{'active' : route.path == '/vehicles'}" class="flex items-center p-2 text-gray-500 rounded-lg dark:text-white  group  hover:bg-gray-100 dark:hover:bg-gray-700">
+                        <IconCar   stroke-width="2"/>
                     <span class="ms-2">المركبات</span>
                     </RouterLink>
                 </li>
                 <li>
-                    <RouterLink to = "/drivers" class="flex items-center p-2 text-gray-500 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                        <IconRadar color="#888"  stroke-width="2"/>
+                    <RouterLink to = "/drivers" :class = "{'active' : route.path == '/drivers'}" class=" flex items-center p-2 text-gray-500 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <IconRadar   stroke-width="2"/>
                     <span class="ms-2">السائقين</span>
                     </RouterLink>
                 </li>
                 <li>
-                    <RouterLink to = "/product" class="flex items-center p-2 text-gray-500 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                        <IconDiscountCheck color="#888"  stroke-width="2"/>
+                    <RouterLink to = "/product" :class = "{'active' : route.path == '/product'}" class=" flex items-center p-2 text-gray-500 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <IconDiscountCheck   stroke-width="2"/>
                     <span class="ms-2">المنتجات</span>
                     </RouterLink>
                 </li>
                 <li>
-                    <RouterLink to = "/users" class="flex items-center p-2 text-gray-500 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                        <IconUsers color="#888"  stroke-width="2"/>
+                    <RouterLink to = "/users" :class = "{'active' : route.path == '/users'}" class="flex items-center p-2 text-gray-500 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <IconUsers   stroke-width="2"/>
                     <span class="ms-2">الأعضاء</span>
                     </RouterLink>
                 </li>
                 <li>
-                    <RouterLink to = "/transactions" class="flex items-center p-2 text-gray-500 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                        <IconTransitionLeft color="#888"  stroke-width="2"/>
+                    <RouterLink to = "/transactions" :class = "{'active' : route.path == '/transactions'}" class="flex items-center p-2 text-gray-500 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                        <IconTransitionLeft   stroke-width="2"/>
                     <span class="ms-2">المعاملات</span>
                     </RouterLink>
                 </li>
@@ -65,9 +65,21 @@
 <script setup>
 import logo from "@/assets/images/logo.png"
 import { IconHome, IconLayersIntersect, IconCar, IconRadar, IconDiscountCheck, IconUsers, IconTransitionLeft } from '@tabler/icons-vue';
-
+import { useRoute } from "vue-router";
+const  route = useRoute()
 </script>
 
-<style lang="scss" scoped>
+<style  scoped>
+.route-link {
 
+}
+
+.route-link:hover {
+    background: linear-gradient(90deg, rgb(9, 38, 53), rgb(158, 200, 185));
+    color: #fff;
+}
+.active {
+    background: linear-gradient(90deg, rgb(9, 38, 53), rgb(158, 200, 185));
+    color: #fff;
+}
 </style>
