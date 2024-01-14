@@ -7,7 +7,7 @@ const { isBlankPage } = useConfig()
 </script>
 
 <template>
-  <div dir="rtl" class=" main w-screen h-screen bg-stone-50">
+  <div dir="rtl" class=" bg-stone-50">
   <PageContainer v-if="isBlankPage">
     <RouterView />
   </PageContainer>
@@ -25,7 +25,5 @@ html {
   font-family: mainF;
   src: url("./NeoSansArabic.ttf");
 }
-.main  {
-  overflow: hidden;
-}
+
 </style>

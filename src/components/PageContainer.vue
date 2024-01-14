@@ -1,10 +1,10 @@
 <template>
 <div >
     <Sidebar />
-    <div class="px-6 p-4 sm:mr-64 space-y-8 ">
+    <div class="page-container px-6 pb-4 py-2 sm:mr-64 space-y-8  h-screen overflow-scroll">
         <Navbar />
         <!-- border-2 border-gray-200 border-dashed -->
-        <div class="rounded-lg dark:border-gray-700 h-4/5">
+        <div class="rounded-lg dark:border-gray-700">
             <slot></slot>
         </div>
     </div>
@@ -18,6 +18,8 @@ import { Sidebar } from "@/components"
 
 </script>
 
-<style scoped>
-
+<style>
+.page-container::-webkit-scrollbar {
+  width: 0px;
+}
 </style>
