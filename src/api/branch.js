@@ -10,7 +10,7 @@ class BranchApiClass extends EventTarget {
         const { response, error, getData } = useFetcher(useGet)
         await getData('./branches')
         if(response.value && response.value.status.code == 200) {
-            this.dispatchEvent(new CustomEvent('branchesFetched', { detail : response.value.data}))
+            this.dispatchEvent(new CustomEvent('FetchedSuccessfully', { detail : response.value.data}))
         } else if (error.value) {
             this.dispatchEvent(new CustomEvent('errorOnFetch', { detail : error.value }))
         }
