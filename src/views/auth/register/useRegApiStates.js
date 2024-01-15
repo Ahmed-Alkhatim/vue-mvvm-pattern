@@ -6,7 +6,7 @@ const useRegApiStates = () => {
     // Stores
     const userStore = useUserStore()
     // States
-    const inputsError = ref({})
+   
 
     // Events
     const onRegisterSuccess = ( (callback) => { callback() })
@@ -26,7 +26,7 @@ const useRegApiStates = () => {
         Auth.register(data)
     }
 
-    return { registerUser , onRegisterSuccess, inputsError }
+    return { registerUser , onRegisterSuccess }
 }
  
 export default useRegApiStates

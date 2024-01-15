@@ -22,10 +22,15 @@ const currentStep = ref(1)
 const goToNextStep = (step) => {
     currentStep.value = step
 }
+const inputsError = ref({})
+
+const setInputsErrors = (errors) => { 
+    inputsError.value = { ...inputsError.value, ...errors }
+}
 
 // Data & Api 
 const { registerationData, setType } = useRegDataStates()
-const { registerUser, onRegisterSuccess, inputsError } = useRegApiStates()
+const { registerUser, onRegisterSuccess} = useRegApiStates()
 
 // Functions
 const completeRegistration = () => {
@@ -38,6 +43,7 @@ onRegisterSuccess( () => {
 // Provides
 provide('registerationData', registerationData)
 provide('inputsError', inputsError)
+provide('setInputsErrors', setInputsErrors)
 provide('setType', setType)
 
 </script>
