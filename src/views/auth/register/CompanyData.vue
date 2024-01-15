@@ -3,7 +3,7 @@
         <div class="w-full mt-20 space-y-5">
             <TextInput v-model="registerationData.company_name" label = 'اسم الشركة' />
             <TextInput v-model="registerationData.public_name" label = 'الاسم العام للشركة'/>
-            <Btn class="w-full" size = "small" color = "blue" @click = "saveData()">التالي</Btn>
+            <Btn class="w-full" size = "small" color = "primary" @click = "saveData()">التالي</Btn>
         </div>
     </div>
 </template>

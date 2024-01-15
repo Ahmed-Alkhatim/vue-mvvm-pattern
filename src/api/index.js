@@ -1,2 +1,2 @@
-import auth from "./auth"
-export { auth }
+import Auth from "./auth"
+export { Auth }

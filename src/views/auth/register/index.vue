@@ -15,7 +15,8 @@ import CompanyData from './CompanyData.vue';
 import UserData from "./UserData.vue";
 import useRegApiStates from "./useRegApiStates";
 import useRegDataStates from "./useRegDataStates";
-
+import { useRouter } from "vue-router";
+const router = useRouter()
 // UI States
 const currentStep = ref(1)
 const goToNextStep = (step) => {
@@ -24,12 +25,15 @@ const goToNextStep = (step) => {
 
 // Data & Api 
 const { registerationData, setType } = useRegDataStates()
-const { registerUser, inputsError } = useRegApiStates()
+const { registerUser, onRegisterSuccess, inputsError } = useRegApiStates()
 
 // Functions
 const completeRegistration = () => {
     registerUser(registerationData)
 }
+onRegisterSuccess( () => {
+    // router.push('/')
+})
 
 // Provides
 provide('registerationData', registerationData)

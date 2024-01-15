@@ -4,10 +4,9 @@
             <p class = 'paragraph text-[18px]'>التسجيل ك :</p>
         </div>
         <div class = "flex justify-center">
-            <RadioInput @click = "setType('provider')" class = "text-[18px] mx-3" id = 'company'>مقدم خدمات</RadioInput>
-            <RadioInput @click = "setType('consumer')" class = "text-[18px] mx-3" id = 'company'>مستهلك</RadioInput>
+            <Btn @click = "selectType('provider')" color="primary">مقدم خدمات</Btn>
+            <Btn @click = "selectType('consumer')" color="secondary">مستهلك</Btn>
         </div>
-        <Btn size="small" color = 'blue' @click = 'saveData()'>التالي</Btn>
     </div>
 </template> 
 
@@ -19,9 +18,9 @@ import { inject } from "vue";
 const emit =  defineEmits(['complete'])
 const setType = inject('setType')
 
-
 // Functions
-const saveData = () => {
+const selectType = (type) => {
+    setType(type)
     emit('complete')
 }
 

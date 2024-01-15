@@ -15,7 +15,7 @@
                 <SelectInput v-model = "registerationData.identity_type"  :options = "[{id : 'مواطن', value : 'مواطن'}, {id : 'مقيم', value : 'مقيم'}]" label = "نوع الهوية" />
                 <NumberInput v-model = "registerationData.id_number" label = "رقم الهوية" />
             </div>
-                <Btn class="w-full" size = "small" color = "blue" @click = "register()">تسجيل</Btn>
+                <Btn class="w-full" size = "small" color = "primary" @click = "register()">تسجيل</Btn>
         </div>
     </div>
 </template>
