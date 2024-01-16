@@ -4,15 +4,17 @@ const validateCompanyData = (data) => {
     const companyDataErrors = {
         public_name : [],
         company_name : [],
+        commercial_record : [],
     }
 
-    if(!data.public_name) {
+    if(!data.company_name) {
         isCompanyDataValid = false
         companyDataErrors.public_name.push('يجب اختيار اسم الشركة')
     }  
-    if(!data.company_name ) {
+   
+    if(!data.commercial_record ) {
         isCompanyDataValid = false
-        companyDataErrors.company_name.push('يجب اختيار الاسم العام للشركة')
+        companyDataErrors.company_name.push('السجل التجاري مطللوب')
     }
 
     return { companyDataErrors, isCompanyDataValid }

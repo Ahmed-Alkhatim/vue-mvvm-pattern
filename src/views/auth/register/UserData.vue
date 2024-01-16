@@ -6,14 +6,14 @@
                 <DateInput v-model = "registerationData.birth_date" label = 'تاريخ الميلاد' :errors = "inputsError.birth_date"/>
             </div>
             <SelectInput v-model = "registerationData.type" label = "نوع المستخدم"  
-                :options = "[{id : 'مقدم خدمات', value : 'مقدم خدمات'}, {id : 'مستهلك', value : 'مستهلك'}, {id : ' فرد', value : 'فرد'}]" :errors = "inputsError.type"
+                :options = "[{id : 'provider', value : 'مقدم خدمات'}, {id : 'consumer', value : 'مستهلك'}, {id : ' individual', value : 'فرد'}]" :errors = "inputsError.type"
             />
             <EmailInput v-model = "registerationData.email" label = "الايميل" :errors = "inputsError.email"/>
-            <NumberInput v-model = "registerationData.phone" label = "رقم الهاتف" :errors = "inputsError.phone"/>
+            <TextInput v-model = "registerationData.phone" label = "رقم الهاتف" :errors = "inputsError.phone"/>
             
             <div class="grid grid-cols-2 gap-2">
                 <SelectInput v-model = "registerationData.identity_type"  :options = "[{id : 'مواطن', value : 'مواطن'}, {id : 'مقيم', value : 'مقيم'}]" label = "نوع الهوية" :errors = "inputsError.identity_type"/>
-                <NumberInput v-model = "registerationData.id_number" label = "رقم الهوية" :errors = "inputsError.id_number"/>
+                <TextInput v-model = "registerationData.id_number" label = "رقم الهوية" :errors = "inputsError.id_number"/>
             </div>
             <PasswordInput v-model="registerationData.password" label = "كلمة المرور" :errors = "inputsError.password"/>
             <PasswordInput v-model="registerationData.password_confirmation" label=" اعادة كلمة المرور " :errors = "inputsError.password_confirmation"/>

@@ -1,6 +1,5 @@
 <template>
     <div class = 'mt-20'>
-        {{ inputsError }}
         <Stepper :currentStep = "currentStep"/>
         <RegisterType v-if = "currentStep == 1"   @complete = "goToNextStep(2)"/>
         <CompanyData v-if = "currentStep == 2"  @complete = "goToNextStep(3)"/>
@@ -20,7 +19,7 @@ import { useRouter } from "vue-router";
 
 const router = useRouter()
 // UI States
-const currentStep = ref(3)
+const currentStep = ref(1)
 const inputsError = ref({})
 
 const goToNextStep = (step) => { currentStep.value = step }
@@ -34,11 +33,18 @@ const { registerUser, onRegisterSuccess, onRegisterFail } = useRegApiStates()
 const completeRegistration = () => {
     registerUser(registerationData)
 }
+
 onRegisterSuccess( () => {
     router.push('/')
 })
+
 onRegisterFail( (errors) => {
-    setInputsErrors(errors)
+const errorsNames = Object.keys(errors)
+   console.log(errors)
+    if(errorsNames.includes('public_name') || errorsNames.includes('company_name')){
+        currentStep.value = 2
+    }
+    inputsError.value = errors
 })
 
 // Provides
