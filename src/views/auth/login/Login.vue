@@ -31,13 +31,11 @@ const errors = reactive({
 })
 
 Auth.on('loggedSuccess', (e) => {
-   localStorage.setItem('token', e.detail.token)
    localStorage.setItem('user', e.detail.user)
    router.push('/')
 
 })
 Auth.on('loggingFail', (e) => {
-    console.log('logged failed', e.detail);
     Object.assign(errors, e.detail);
 });
 
