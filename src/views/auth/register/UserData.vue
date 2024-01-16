@@ -16,26 +16,42 @@
                 <NumberInput v-model = "registerationData.id_number" label = "رقم الهوية" :errors = "inputsError.id_number"/>
             </div>
             <PasswordInput v-model="registerationData.password" label = "كلمة المرور" :errors = "inputsError.password"/>
-            <PasswordInput :errors = "inputsError.password" label=" اعادة كلمة المرور "/>
+            <PasswordInput :errors = "inputsError.password_confirmation" label=" اعادة كلمة المرور "/>
 
-            <Btn class="w-full" size = "small" color = "primary" @click = "register()">تسجيل</Btn>
+            <Btn class="w-full"  :class = "{ 'cursor-not-allowed opacity-50' : !canGoToNextStep}" size = "small" color = "primary" @click = "register()">تسجيل</Btn>
         </div>
     </div>
 </template>
 
 <script setup>
-import { inject, reactive } from "vue"
+import { inject, ref, watch } from "vue"
 import { TextInput, DateInput, NumberInput, Btn, SelectInput, PasswordInput } from "@/components"
+import { validateUserData } from "./validators"
+
+// States
+const canGoToNextStep = ref(false)
 
 // Props && Emit && Ineject
 const registerationData = inject('registerationData')
 const inputsError = inject('inputsError')
+const setInputsErrors = inject('setInputsErrors')
 
 const emit = defineEmits(['complete'])
 
+watch(registerationData, () => {
+    const { isUserDataValid } = validateUserData(registerationData)
+    isUserDataValid ? canGoToNextStep.value = true : canGoToNextStep.value = false
+})
+ 
 // Functions
 const register = () => {
-    emit('complete')
+    const { isUserDataValid, userDataErrors } = validateUserData(registerationData)
+    console.log(userDataErrors);
+    if(isUserDataValid) {
+        emit('complete')
+    } else {
+        setInputsErrors(userDataErrors)
+    }
 }
 </script>
 

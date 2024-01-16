@@ -10,7 +10,7 @@
 
 <script setup>
 import { ref, watch } from 'vue';
-const props = defineProps(['modelValue', 'label', 'placeholder', 'error'])
+const props = defineProps(['modelValue', 'label', 'placeholder', 'errors'])
 const emit = defineEmits(['update:modelValue'])
 
 const text = ref(props.modelValue)

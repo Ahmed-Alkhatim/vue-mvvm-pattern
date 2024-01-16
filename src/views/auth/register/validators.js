@@ -1,3 +1,13 @@
+const checkEmptyData = (data, instance) => {
+    const inputsNames = Object.keys(obj);
+    for (let i = 0; i < inputsNames.length; i++) {
+        if(!data[inputsNames[i]]){
+            instance.isDataValid = false
+        }
+    }
+}
+
+
 const validateCompanyData = (data) => {
     let isCompanyDataValid =  true;
     const companyDataErrors = {
@@ -18,5 +28,66 @@ const validateCompanyData = (data) => {
 }
 
 
+const validateUserData = (data) => {
 
-export { validateCompanyData }
+    let isUserDataValid = true
+    const userDataErrors = {
+        name : [],
+        birth_date : [],
+        type : [],
+        phone : [],
+        email : [],
+        identity_type : [],
+        id_number : [],
+        password : [],
+        password_confirmation : []
+    }
+
+    // Check emptiness
+    const inputsNames = Object.keys(userDataErrors);
+    for (let i = 0; i < inputsNames.length; i++) {
+        console.log(data[inputsNames[i]]);
+        if(!data[inputsNames[i]]){
+            console.log(i, inputsNames[i], userDataErrors[inputsNames[i]]);
+            isUserDataValid = false
+            userDataErrors[inputsNames[i]].push(userErrorMessages[inputsNames[i]].empty)
+        }
+    }
+
+    return { userDataErrors, isUserDataValid }
+}
+
+
+const userErrorMessages = {
+    name : {
+        empty : "يجب أن لا يكون الإسم فارغا"
+    },
+    birth_date : {
+        empty : "يجب تحديد تاريخ الميلاد"
+    },
+    type : {
+        empty : "النوع مطلوب"
+    },
+    email : {
+        empty : "يجب أن لا يكون البريد الإلكتروني فارغا"
+    },
+    phone : {
+        empty : "رقم الهاتف مطلوب"
+    },
+    identity_type : {
+        empty : "نوع الهوية مطلوب"
+    },
+    id_number : {
+        empty : "رقم الهوية مطلوب"
+    },
+    password : {
+        empty : "كلمة المرور مطلوبة"
+    },
+    password_confirmation : {
+        empty  : ""
+    },
+
+}
+
+
+export { validateCompanyData, validateUserData }
