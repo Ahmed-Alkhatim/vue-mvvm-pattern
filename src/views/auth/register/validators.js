@@ -46,9 +46,9 @@ const validateUserData = (data) => {
     // Check emptiness
     const inputsNames = Object.keys(userDataErrors);
     for (let i = 0; i < inputsNames.length; i++) {
-        console.log(data[inputsNames[i]]);
+        console.log(inputsNames[i], data[inputsNames[i]]);
         if(!data[inputsNames[i]]){
-            console.log(i, inputsNames[i], userDataErrors[inputsNames[i]]);
+            // console.log(i, inputsNames[i], userDataErrors[inputsNames[i]]);
             isUserDataValid = false
             userDataErrors[inputsNames[i]].push(userErrorMessages[inputsNames[i]].empty)
         }
@@ -84,7 +84,7 @@ const userErrorMessages = {
         empty : "كلمة المرور مطلوبة"
     },
     password_confirmation : {
-        empty  : ""
+        empty  : "تأكيد كلمة المرور  "
     },
 
 }

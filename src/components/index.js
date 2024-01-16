@@ -1,4 +1,5 @@
 import TextInput from "./form/TextInput.vue"
+import EmailInput from "./form/EmailInput.vue"
 import Card from "./ui/Card.vue"
 import Btn from "./ui/Btn.vue"
 import RadioInput from "./form/RadioInput.vue"
@@ -14,4 +15,4 @@ import PageContainer from "./PageContainer.vue"
 import Navbar from "./Navbar.vue"
 import Sidebar from "./Sidebar.vue"
 
-export { TextInput, Card, Btn, RadioInput, DateInput, NumberInput, SelectInput, VTable, VTableRow, Dialog, PageContainer, Navbar, DropDown, Sidebar, PasswordInput }
+export { TextInput, Card, Btn, RadioInput, DateInput, NumberInput, SelectInput, VTable, VTableRow, Dialog, PageContainer, Navbar, DropDown, Sidebar, PasswordInput, EmailInput }

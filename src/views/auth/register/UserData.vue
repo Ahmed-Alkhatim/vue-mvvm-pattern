@@ -8,7 +8,7 @@
             <SelectInput v-model = "registerationData.type" label = "نوع المستخدم"  
                 :options = "[{id : 'مقدم خدمات', value : 'مقدم خدمات'}, {id : 'مستهلك', value : 'مستهلك'}, {id : ' فرد', value : 'فرد'}]" :errors = "inputsError.type"
             />
-            <TextInput v-model = "registerationData.email" label = "الايميل" :errors = "inputsError.email"/>
+            <EmailInput v-model = "registerationData.email" label = "الايميل" :errors = "inputsError.email"/>
             <NumberInput v-model = "registerationData.phone" label = "رقم الهاتف" :errors = "inputsError.phone"/>
             
             <div class="grid grid-cols-2 gap-2">
@@ -16,7 +16,7 @@
                 <NumberInput v-model = "registerationData.id_number" label = "رقم الهوية" :errors = "inputsError.id_number"/>
             </div>
             <PasswordInput v-model="registerationData.password" label = "كلمة المرور" :errors = "inputsError.password"/>
-            <PasswordInput :errors = "inputsError.password_confirmation" label=" اعادة كلمة المرور "/>
+            <PasswordInput v-model="registerationData.password_confirmation" label=" اعادة كلمة المرور " :errors = "inputsError.password_confirmation"/>
 
             <Btn class="w-full"  :class = "{ 'cursor-not-allowed opacity-50' : !canGoToNextStep}" size = "small" color = "primary" @click = "register()">تسجيل</Btn>
         </div>
@@ -25,7 +25,7 @@
 
 <script setup>
 import { inject, ref, watch } from "vue"
-import { TextInput, DateInput, NumberInput, Btn, SelectInput, PasswordInput } from "@/components"
+import { EmailInput, TextInput, DateInput, NumberInput, Btn, SelectInput, PasswordInput } from "@/components"
 import { validateUserData } from "./validators"
 
 // States
