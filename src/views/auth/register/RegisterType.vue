@@ -1,7 +1,7 @@
 <template>
-    <div class = "w-[400px]  mt-32 m-auto text-center space-y-6">
+    <div class = "w-[400px] m-auto text-center space-y-6 mt-32">
         <div class = 'w-full'>
-            <p class = 'paragraph text-[18px]'>التسجيل ك :</p>
+            <p class = 'paragraph text-[18px] mb-10'>التسجيل ك :</p>
         </div>
         <div class = "flex justify-center">
             <Btn @click = "selectType('provider')" color="primary">مقدم خدمات</Btn>
