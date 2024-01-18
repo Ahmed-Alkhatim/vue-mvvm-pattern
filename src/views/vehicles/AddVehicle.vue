@@ -1,5 +1,5 @@
 <template>
-    <Dialog v-model="isDialogVisible">
+    <Dialog v-model="isAddDialogVisible">
         <template #activator>
             <Btn size="small" color="primary">إضافة مركبة</Btn>
         </template>
@@ -14,7 +14,7 @@
             <div class = "flex justify-end">
                 <div class = "mt-4">
                     <Btn size = "small" color = "primary">إضافة</Btn>
-                    <Btn @click = "isDialogVisible = false" size = "small" color = "secondary">إلغاء</Btn>
+                    <Btn @click = "setAddDialogVisibility(false)" size = "small" color = "secondary">إلغاء</Btn>
                 </div>
             </div>
         </Card>
@@ -24,7 +24,11 @@
 <script setup>
 import { reactive, ref } from "vue"
 import { Dialog, Btn, Card, TextInput } from "@/components"
-const isDialogVisible = ref(false)
+import useUiStates from "./useUiStates"
+
+// UI | Data | API states
+const { isAddDialogVisible, setAddDialogVisibility } = useUiStates()
+
 
 const vehicleData = reactive({
     name : "",
