@@ -5,6 +5,7 @@ class TransactionsApiClass extends EventTarget {
         super();
     }
 
+    on(event,callBack){ this.addEventListener(event,callBack);}
     fetchTransactions = async() => {
         const { response, error, getData } = useFetcher(useGet)
         await getData('/transactions')
