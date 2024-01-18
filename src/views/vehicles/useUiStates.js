@@ -1,4 +1,4 @@
-import { ref } from "vue"
+import { ref, reactive } from "vue"
 
 const useUiStates = () => {
     const isAddDialogVisible = ref(false)
@@ -6,7 +6,11 @@ const useUiStates = () => {
         isAddDialogVisible.value = state
     }
 
-    return { isAddDialogVisible, setAddDialogVisibility }
+    const inputsErrors = reactive({ name : "", brand : "", model : "", fuel_type : "", year : "", plate_number : ""})
+    const setInputsErrors = (errors) => {
+        Object.assign(inputsErrors, errors)
+    }
+    return { isAddDialogVisible, setAddDialogVisibility, inputsErrors, setInputsErrors }
 }
 
 export default useUiStates
