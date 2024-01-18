@@ -22,8 +22,23 @@
 import { VTable, VTableRow } from '@/components';
 import { useVehiclesStore } from '@/stores';
 import AddVehicle from "./AddVehicle.vue"
+import useApiStates from './useApiStates';
+import { onMounted } from 'vue';
 
+// Store
 const vehiclesStore = useVehiclesStore()
+
+// UI | Data | API states
+const { fetchVehicles, onFetchFailure, onFetchSuccess } = useApiStates()
+
+// Functions
+onMounted( () => {
+    fetchVehicles()
+})
+
+onFetchSuccess( () => {})
+onFetchFailure( () => {})
+
 </script>
 
 <style lang="scss" scoped>
