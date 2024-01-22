@@ -4,8 +4,13 @@
             <Btn size="small" color="primary">إضافة مستخدم</Btn>
         </template>
         <Card  class="space-y-5 w-[600px]" title = "إضافة مستخدم">
-            <TextInput v-model="addUserData.name" label="الإسم" :error="errors.name"/>
-            <TextInput v-model="addUserData.userable_type" label="النوع" :error="errors.userable_type"/>
+            <TextInput v-model="addUserData.name" label="الإسم" :error="errors.name"/> 
+
+            <SelectInput v-model="addUserData.userable_type" label="النوع" 
+                :options="[{ id : 'manager', value : 'مدير'}, { id : 'supervisor', value : 'مشرف'}, { id : 'employee', value : 'موظف'}]"
+                :error="errors.userable_type"
+            />
+
             <TextInput v-model="addUserData.email" label="الايميل" :error="errors.email"/>  
             <div class = "flex justify-end">
                 <div class = "mt-4">
@@ -19,7 +24,7 @@
 
 <script setup>
 import { reactive, ref } from 'vue';
-import { TextInput, Btn, Card, Dialog} from '@/components';
+import { TextInput, SelectInput, Btn, Card, Dialog} from '@/components';
 import useDataStates from "./useDataStates"
 import useApiStates from './useApiStates';
 import useUiStates from "./useUiStates"
