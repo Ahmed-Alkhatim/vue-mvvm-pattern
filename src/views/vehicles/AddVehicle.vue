@@ -3,7 +3,6 @@
         <template #activator>
             <Btn size="small" color="primary">إضافة مركبة</Btn>
         </template>
-        {{ addVehiclesData }}
         <Card  class="space-y-5 w-[600px]" title = "إضافة مركبة">
             <SelectInput v-model="addVehiclesData.name" label = "النوع"  
                 :error = "inputsErrors.name"
