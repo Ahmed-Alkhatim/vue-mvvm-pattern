@@ -12,7 +12,9 @@
                 <TextInput v-model="addVehiclesData.model" label = "الموديل"  :error = "inputsErrors.model"/>
                 <TextInput v-model="addVehiclesData.year" label = "السنة"  :error = "inputsErrors.year"/>
             </div>
-                <TextInput v-model="addVehiclesData.fuel_type" label = "نوع الوقود"  :error = "inputsErrors.fuel_type"/>
+                <SelectInput v-model="addVehiclesData.fuel_type" label = "نوع الوقود"  :error = "inputsErrors.fuel_type"
+                    :options="[{ id : 'petrol', value : 'بنزين'}, { id : 'diesel ', value : 'جاز'}, { id : 'gas ', value : 'غاز'}]"
+                />
             <TextInput v-model="addVehiclesData.plate_number" label = "Plate number"  :error = "inputsErrors.plate_number"/>
             <div class = "flex justify-end">
                 <div class = "mt-4">
