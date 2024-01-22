@@ -3,9 +3,12 @@
         <template #activator>
             <Btn size="small" color="primary">إضافة مركبة</Btn>
         </template>
-        {{ inputsErrors }}
+        {{ addVehiclesData }}
         <Card  class="space-y-5 w-[600px]" title = "إضافة مركبة">
-            <TextInput v-model="addVehiclesData.name" label = "النوع"  :error = "inputsErrors.name"/>
+            <SelectInput v-model="addVehiclesData.name" label = "النوع"  
+                :error = "inputsErrors.name"
+                :options="[{ id : 'car', value : 'سيارة'}, { id : 'truck', value : 'شاحنة'}, { id : 'motorcycle', value : 'دراجة نارية'}]"
+            />
             <div class="grid grid-cols-2 gap-2">
                 <TextInput v-model="addVehiclesData.model" label = "الموديل"  :error = "inputsErrors.model"/>
                 <TextInput v-model="addVehiclesData.year" label = "السنة"  :error = "inputsErrors.year"/>
@@ -24,7 +27,7 @@
 
 <script setup>
 import { reactive, ref } from "vue"
-import { Dialog, Btn, Card, TextInput } from "@/components"
+import { Dialog, Btn, Card, TextInput, SelectInput } from "@/components"
 import useUiStates from "./useUiStates"
 import useDataStates from "./useDataStates";
 import useApiStates from "./useApiStates"
