@@ -5,9 +5,6 @@
                 <TextInput v-model = "registerationData.name" label = "اسم المستخدم" :errors = "inputsError.name"/>
                 <DateInput v-model = "registerationData.birth_date" label = 'تاريخ الميلاد' :errors = "inputsError.birth_date"/>
             </div>
-            <SelectInput v-model = "registerationData.type" label = "نوع المستخدم"  
-                :options = "[{id : 'provider', value : 'مقدم خدمات'}, {id : 'consumer', value : 'مستهلك'}, {id : ' individual', value : 'فرد'}]" :errors = "inputsError.type"
-            />
             <EmailInput v-model = "registerationData.email" label = "الايميل" :errors = "inputsError.email"/>
             <TextInput v-model = "registerationData.phone" label = "رقم الهاتف" :errors = "inputsError.phone"/>
             
