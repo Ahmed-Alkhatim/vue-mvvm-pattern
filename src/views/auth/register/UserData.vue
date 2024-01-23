@@ -5,24 +5,21 @@
                 <TextInput v-model = "registerationData.name" label = "اسم المستخدم" :errors = "inputsError.name"/>
                 <DateInput v-model = "registerationData.birth_date" label = 'تاريخ الميلاد' :errors = "inputsError.birth_date"/>
             </div>
-            <EmailInput v-model = "registerationData.email" label = "الايميل" :errors = "inputsError.email"/>
             <TextInput v-model = "registerationData.phone" label = "رقم الهاتف" :errors = "inputsError.phone"/>
             
             <div class="grid grid-cols-2 gap-2">
                 <SelectInput v-model = "registerationData.identity_type"  :options = "[{id : 'مواطن', value : 'مواطن'}, {id : 'مقيم', value : 'مقيم'}]" label = "نوع الهوية" :errors = "inputsError.identity_type"/>
                 <TextInput v-model = "registerationData.id_number" label = "رقم الهوية" :errors = "inputsError.id_number"/>
             </div>
-            <PasswordInput v-model="registerationData.password" label = "كلمة المرور" :errors = "inputsError.password"/>
-            <PasswordInput v-model="registerationData.password_confirmation" label=" اعادة كلمة المرور " :errors = "inputsError.password_confirmation"/>
-
-            <Btn class="w-full"  :class = "{ 'cursor-not-allowed opacity-50' : !canGoToNextStep}" size = "small" color = "primary" @click = "register()">تسجيل</Btn>
+           
+            <Btn class="w-full"  :class = "{ 'cursor-not-allowed opacity-50' : !canGoToNextStep}" size = "small" color = "primary" @click = "saveData()">التالي</Btn>
         </div>
     </div>
 </template>
 
 <script setup>
 import { inject, ref, watch } from "vue"
-import { EmailInput, TextInput, DateInput, NumberInput, Btn, SelectInput, PasswordInput } from "@/components"
+import { TextInput, DateInput, NumberInput, Btn, SelectInput, PasswordInput } from "@/components"
 import { validateUserData } from "./validators"
 
 // States
@@ -41,9 +38,8 @@ watch(registerationData, () => {
 })
  
 // Functions
-const register = () => {
+const saveData = () => {
     const { isUserDataValid, userDataErrors } = validateUserData(registerationData)
-    console.log(userDataErrors);
     if(isUserDataValid) {
         emit('complete')
     } else {

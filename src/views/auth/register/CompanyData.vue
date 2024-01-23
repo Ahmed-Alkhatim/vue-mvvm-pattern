@@ -33,6 +33,7 @@ const saveData = () => {
     const { companyDataErrors, isCompanyDataValid } = validateCompanyData(registerationData)
 
     if(isCompanyDataValid) {
+        setInputsErrors({  public_name : [], company_name : [], commercial_record : []})
         emit('complete', )
     } else {
         setInputsErrors(companyDataErrors)

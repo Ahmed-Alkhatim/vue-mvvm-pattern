@@ -24,7 +24,7 @@ const validateCompanyData = (data) => {
 const validateUserData = (data) => {
 
     let isUserDataValid = true
-    const userDataErrors = { name : [], birth_date : [], type : [], phone : [], email : [], identity_type : [], id_number : [], password : [], password_confirmation : []}
+    const userDataErrors = { name : [], birth_date : [], phone : [], identity_type : [], id_number : []}
 
     // Check emptiness
     const inputsNames = Object.keys(userDataErrors);
@@ -37,6 +37,27 @@ const validateUserData = (data) => {
 
     return { userDataErrors, isUserDataValid }
 }
+
+
+const validateLoginData = (data) => {
+    let isLoginDataValid = true
+    const loginDataErrors = {email : [], password : [], password_confirmation : [] }
+    const inputsNames = Object.keys(loginDataErrors)
+    for (let i = 0; i < inputsNames.length; i++) {
+        if(!data[inputsNames[i]]) {
+            isLoginDataValid = false
+            loginDataErrors[inputsNames[i]].push(userErrorMessages[inputsNames[i]].empty)
+        }
+    }   
+
+    return { isLoginDataValid, loginDataErrors }
+}
+
+
+
+
+
+
 
 
 const userErrorMessages = {
@@ -71,4 +92,4 @@ const userErrorMessages = {
 }
 
 
-export { validateCompanyData, validateUserData }
+export { validateCompanyData, validateUserData, validateLoginData }

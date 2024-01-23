@@ -2,8 +2,9 @@
     <div class = 'mt-20'>
         <Stepper :currentStep = "currentStep"/>
         <RegisterType v-if = "currentStep == 1"   @complete = "goToNextStep(2)"/>
-        <CompanyData v-if = "currentStep == 2"  @complete = "goToNextStep(3)"/>
-        <UserData v-if = "currentStep == 3"   @complete = "completeRegistration()"/>
+        <CompanyData v-if = "currentStep == 2"  @complete = "goToNextStep(4)"/>
+        <UserData v-if = "currentStep == 3"   @complete = "goToNextStep(4)"/>
+        <LoginData v-if = "currentStep == 4"   @complete = "completeRegistration()"/>
     </div>
 </template>
 
@@ -13,6 +14,7 @@ import Stepper from './Stepper.vue';
 import RegisterType from './RegisterType.vue';
 import CompanyData from './CompanyData.vue';
 import UserData from "./UserData.vue";
+import LoginData from "./LoginData.vue";
 import useRegApiStates from "./useRegApiStates";
 import useRegDataStates from "./useRegDataStates";
 import { useRouter } from "vue-router";
@@ -40,10 +42,15 @@ onRegisterSuccess( () => {
 
 onRegisterFail( (errors) => {
 const errorsNames = Object.keys(errors)
-   console.log(errors)
-    if(errorsNames.includes('public_name') || errorsNames.includes('company_name')){
+    const companyDataInputs = ['public_name', 'company_name', 'commercial_record']
+    const userDataInputs = ['name', 'birth_date', 'phone', 'identity_type', 'id_number']
+    
+    if(errorsNames.filter( error => companyDataInputs.includes(error)).length > 0) {
         currentStep.value = 2
+    } else if(errorsNames.filter( error => userDataInputs.includes(error)).length > 0) {
+        currentStep.value = 3
     }
+
     inputsError.value = errors
 })
 
