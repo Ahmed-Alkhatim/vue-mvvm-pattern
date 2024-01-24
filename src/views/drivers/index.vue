@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <PageContainer>
         <div>
             <AddDriver />
         </div>
@@ -16,13 +16,14 @@
                 </VTableRow>
             </VTable>
         </div>
-    </div>
+    </PageContainer>
 </template>
 
 <script setup>
 import { VTable, VTableRow } from '@/components';
 import { useDriversStore } from '@/stores';
 import AddDriver from "./AddDriver.vue"
+import PageContainer from '@/components/PageContainer.vue';
 
 const driversStore = useDriversStore()
 </script>

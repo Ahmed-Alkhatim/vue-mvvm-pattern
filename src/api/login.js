@@ -1,4 +1,0 @@
-class LogIn extends EventTarget {
-
-
-}

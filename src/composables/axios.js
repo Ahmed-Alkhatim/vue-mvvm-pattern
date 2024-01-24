@@ -1,6 +1,6 @@
 import axios from "axios"
 const api = axios.create({
-  baseURL: 'https://dapi.cardscart.net/api/v1/admin'
+  baseURL: 'https://petro.amyal.sa/api/'
 })
  
 api.interceptors.request.use((config) => {

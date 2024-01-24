@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <PageContainer>
         <div>
             <AddVehicle />
         </div>
@@ -15,13 +15,14 @@
                 </VTableRow>
             </VTable>
         </div>
-    </div>
+    </PageContainer>
 </template>
 
 <script setup>
 import { VTable, VTableRow } from '@/components';
 import { useVehiclesStore } from '@/stores';
 import AddVehicle from "./AddVehicle.vue"
+import PageContainer from '@/components/PageContainer.vue';
 
 const vehiclesStore = useVehiclesStore()
 </script>
