@@ -1,4 +1,5 @@
 <template>
+    <PageContainer>
     <div class = "grid grid-cols-4 gap-4">
         <StatisticsCard title=" رصيد المحفظة الرئيسية" color="primary" value="10000 ريال" v-slot="{color}">
             <IconWallet :color="color" size="24"/>
@@ -13,11 +14,12 @@
             <IconCar :color="color" size="26"/>
         </StatisticsCard>
     </div>
+</PageContainer>
 </template>
 
 <script setup>
 import StatisticsCard from './StatisticsCard.vue';
-
+import PageContainer from '@/components/PageContainer.vue';
 import { IconWallet, IconCash, IconCar, IconRadar} from '@tabler/icons-vue';
 </script>
 

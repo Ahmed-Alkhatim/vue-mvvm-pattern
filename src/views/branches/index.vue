@@ -1,5 +1,5 @@
 <template>
-<div>
+<PageContainer>
     <div>
         <AddBranch />
     </div>
@@ -21,7 +21,7 @@
         </VTableRow>
     </VTable>
     </div>
-</div>
+</PageContainer>
 </template>
 
 <script setup>
@@ -30,6 +30,7 @@ import AddBranch from "./AddBranch.vue";
 import { useBranchesStore } from "@/stores";
 import useApiStates from "./useApiStates"
 import { onMounted } from "vue";
+import PageContainer from '@/components/PageContainer.vue';
 
 const branchesStore = useBranchesStore()
 const { getBranches } = useApiStates()

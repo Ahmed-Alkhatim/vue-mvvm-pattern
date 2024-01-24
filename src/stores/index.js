@@ -4,4 +4,6 @@ import { useBranchesStore } from "./branches"
 import { useProductsStore } from "./products"
 import {useTransactionsStore} from "./transactions"
 import { useUsersStore } from "./users"
-export { useDriversStore, useVehiclesStore, useBranchesStore, useProductsStore, useTransactionsStore, useUsersStore }
+import { useUserStore } from "./user"
+
+export { useDriversStore, useVehiclesStore, useBranchesStore, useProductsStore, useTransactionsStore, useUsersStore, useUserStore }

@@ -10,10 +10,6 @@ const { isBlankPage } = useConfig()
   <div dir="rtl" class=" bg-stone-50">
   <PageContainer v-if="isBlankPage">
     <RouterView />
-  </PageContainer>
-  <PageContainer v-else>
-    <RouterView />
-  </PageContainer>
   </div>
 </template>
 
