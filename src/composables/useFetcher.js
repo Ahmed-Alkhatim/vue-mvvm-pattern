@@ -11,8 +11,8 @@ function useFetcher(fetcher) {
     error.value = null;
     try {
       response.value = await fetcher(route, data);
-      console.log(response.value);
       console.log(response.value.config.url , response.value.status, response.value.data );
+      console.log(response.value);
     } catch (err) {
       error.value = err;
       console.log('error',error.value.config.url , error.value.status, error.value );

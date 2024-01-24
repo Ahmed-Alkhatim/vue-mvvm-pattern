@@ -1,24 +1,29 @@
 <template>
-    <div class = "w-[400px]  mt-32 m-auto text-center space-y-6">
+    <div class = "w-[400px] m-auto text-center space-y-6 mt-32">
         <div class = 'w-full'>
-            <p class = 'paragraph text-[18px]'>التسجيل ك :</p>
+            <p class = 'paragraph text-[18px] mb-10'>التسجيل ك :</p>
         </div>
         <div class = "flex justify-center">
-            <RadioInput class = "text-[18px] mx-3" id = 'company'>مقدم خدمات</RadioInput>
-            <RadioInput class = "text-[18px] mx-3" id = 'company'>مستهلك</RadioInput>
+            <Btn @click = "selectType('provider')" color="primary">مقدم خدمات</Btn>
+            <Btn @click = "selectType('consumer')" color="secondary">مستهلك</Btn>
         </div>
-        <Btn size="small" color = 'blue' @click = 'saveData()'>التالي</Btn>
     </div>
 </template> 
 
 <script setup>
 import { RadioInput, Btn } from "@/components"
-const props = defineProps(['currentStep'])
-const emit =  defineEmits(['complete'])
+import { inject } from "vue";
 
-const saveData = () => {
+// Emits && Props && Injects && Stores
+const emit =  defineEmits(['complete'])
+const setType = inject('setType')
+
+// Functions
+const selectType = (type) => {
+    setType(type)
     emit('complete')
 }
+
 </script>
 
 <style lang="scss" scoped>

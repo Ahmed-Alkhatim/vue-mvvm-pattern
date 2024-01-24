@@ -2,7 +2,7 @@
     <div>
         <div>
             <label for="first_name" class="block mb-2 text-md font-medium text-gray-500 dark:text-white">{{label}}</label>
-            <input v-model="text" type="text" :id="label" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" :placeholder="placeholder">
+            <input v-model="text" type="email" :id="label" class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" :placeholder="placeholder">
             <p id="standard_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400" v-for="error in errors">{{error}}</p>
         </div>
     </div>
