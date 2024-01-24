@@ -8,7 +8,7 @@ api.interceptors.request.use((config) => {
   if(token) {
     config.headers["Authorization"] = `Bearer ${token}` 
   }
-  config.headers['X-Authorization'] = 'tYMVvb8EzBpDGVfpHBPsR0M4qiWrciqjt5RfBTKvBhrr40j87nejUSxRhCwU3FD3'
+  config.headers['X-Authorization'] = ''
   config.headers["Accept"] = "application/json"
   return config
 })

@@ -20,10 +20,26 @@
 import { VTable, VTableRow} from "@/components"
 import { useUsersStore } from "@/stores"
 import AddUser from "./AddUser.vue"
+import useApiStates from "./useApiStates"
+// import useDataStates from "./useDataStates"
+// import useUiStates from "./useUiStates"
+import { onMounted } from "vue"
+
+// Stores
 import PageContainer from '@/components/PageContainer.vue';
 
 const userStore = useUsersStore()
 
+// UI | Data | API States
+const { fetchUsers, onFetchUsersSuccess, onFetchUsersFailure } = useApiStates()
+
+// Functions
+onMounted( () => {
+    fetchUsers()
+})
+
+onFetchUsersSuccess( () => {})
+onFetchUsersFailure( () => {})
 
 </script>
 
