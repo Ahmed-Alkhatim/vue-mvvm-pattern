@@ -25,7 +25,7 @@ const colors = {
     },
     color : {
         green : "rgb(74 222 128)",
-        primary : "rgb(168 162 158)",
+        primary : "#092635",
         blue : "rgb(96 165 250)",
         red : "rgb(248 113 113)",
     }

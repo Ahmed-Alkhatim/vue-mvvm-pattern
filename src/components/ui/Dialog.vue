@@ -2,9 +2,9 @@
     <div>
          <!-- Model -->
          <Transition name="fade">
-            <div class="fixed left-0 bottom-0 right-0 top-0  overflow-scroll  pt-[50px] pb-[30px] z-50 bg-[rgba(51,48,60,.33)]"   
+            <div class="dialogue fixed left-0 bottom-0 right-0 top-0  overflow-scroll   z-50 bg-[rgba(51,48,60,.33)]"   
                 v-show="showContainer" @click = "emit('update:modelValue', false)">
-              <div class="absolute-center z-50">
+              <div class="dialog-card  z-50 pt-10 pb-5">
                 <Transition name="bounce">
                   <div v-show="modelValue" @click.stop = "() => {}" >
                       <slot></slot>
@@ -38,6 +38,14 @@ watch( props, () => {
 </script>
 
 <style scoped>
+.dialogue::-webkit-scrollbar {
+  width: 0px;
+}
+.dialog-card {
+  position: absolute;
+  right: 50%;
+  transform: translateX(50%);
+}
 .bounce-enter-active {
   animation: bounce-in 0.5s ;
 }

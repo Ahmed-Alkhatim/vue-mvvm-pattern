@@ -1,10 +1,10 @@
 <template>
     <PageContainer>
     <div class = "grid grid-cols-4 gap-4">
-        <StatisticsCard title=" رصيد المحفظة الرئيسية" color="green" value="10000 ريال" v-slot="{color}">
+        <StatisticsCard title=" رصيد المحفظة الرئيسية" color="primary" value="10000 ريال" v-slot="{color}">
             <IconWallet :color="color" size="24"/>
         </StatisticsCard>
-        <StatisticsCard title="إجمالي المحافظ الفرعية" color="primary" value="10000 ريال" v-slot="{color}">
+        <StatisticsCard title="إجمالي المحافظ الفرعية" color="green" value="10000 ريال" v-slot="{color}">
             <IconCash :color="color" size="26"/>
         </StatisticsCard>
         <StatisticsCard title="سائقين" color="blue" value="15000" v-slot="{color}">

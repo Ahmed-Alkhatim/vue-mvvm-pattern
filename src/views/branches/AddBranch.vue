@@ -6,20 +6,20 @@
         </template>
 
         <Card title="إضافة فرع"  class="space-y-5 w-[600px]">
-            <TextInput v-model = "branchData.name" label="الإسم " :error="errors.name"/>
-            <TextInput v-model = "branchData.public_name" label="الإسم العام" :error="errors.public_name"/>
-            <TextInput v-model = "branchData.commercial_record" label="السجل التجاري" :error="errors.commercial_record"/>
-            <TextInput v-model = "branchData.bank" label="البنك" :error="errors.bank"/>
-            <TextInput v-model = "branchData.iban" label="الآيبان " :error="errors.iban"/>
-            <TextInput v-model = "branchData.account_number" label="رقم الحساب" :error="errors.account_number"/>
-            <TextInput v-model = "branchData.tax_number" label="رقم الحساب" :error="errors.tax_number"/>
-            <TextInput v-model = "branchData.tax_value" label="الرقم الضريبي" :error="errors.tax_value"/>
-            <TextInput v-model = "branchData.type" label="قيمة الضريبة" :error="errors.type"/>
-            <TextInput v-model = "branchData.address" label="النوع" :error="errors.address"/>
-            <TextInput v-model = "branchData.status" label="النوع" :error="errors.status"/>
+            <TextInput v-model = "addBranchData.name" label="الإسم " :error="addInputsErrors.name"/>
+            <TextInput v-model = "addBranchData.public_name" label="الإسم العام" :error="addInputsErrors.public_name"/>
+            <TextInput v-model = "addBranchData.commercial_record" label="السجل التجاري" :error="addInputsErrors.commercial_record"/>
+            <TextInput v-model = "addBranchData.bank" label="البنك" :error="addInputsErrors.bank"/>
+            <TextInput v-model = "addBranchData.iban" label="الآيبان " :error="addInputsErrors.iban"/>
+            <TextInput v-model = "addBranchData.account_number" label="رقم الحساب" :error="addInputsErrors.account_number"/>
+            <TextInput v-model = "addBranchData.tax_number" label="رقم الحساب" :error="addInputsErrors.tax_number"/>
+            <TextInput v-model = "addBranchData.tax_value" label="الرقم الضريبي" :error="addInputsErrors.tax_value"/>
+            <TextInput v-model = "addBranchData.type" label="قيمة الضريبة" :error="addInputsErrors.type"/>
+            <TextInput v-model = "addBranchData.address" label="النوع" :error="addInputsErrors.address"/>
+            <TextInput v-model = "addBranchData.status" label="النوع" :error="addInputsErrors.status"/>
             <div class = "flex justify-end">
                 <div class = "mt-4">
-                    <Btn size = "small" color = "primary">إضافة</Btn>
+                    <Btn @click = "addBranch" size = "small" color = "primary">إضافة</Btn>
                     <Btn @click = "isDialogVisible = false" size = "small" color = "secondary">إلغاء</Btn>
                 </div>
             </div>
@@ -30,43 +30,21 @@
 <script setup>
 import { reactive, ref } from 'vue';
 import { Dialog, Btn, Card, TextInput, DateInput, NumberInput } from "@/components"
-
-// States
+import useDataStates from './useDataStates';
+import useApiStates from "./useApiStates"
+// UI States
 const isDialogVisible = ref(false)
 
-const branchData = reactive({
-    name : "",
-    public_name : "",
-    public_name : "",
-    brand_image : "",
-    commercial_record : "",
-    commercial_record : "",
-    bank : "",
-    iban : "",
-    account_number : "",
-    tax_number : "",
-    type : "",
-    address : "",
-    status : "",
+// API && Data States
+const { addBranchData } = useDataStates() 
+const { addInputsErrors, addBranch, afterAddingBranch } = useApiStates()
+
+afterAddingBranch( () => {
+    isDialogVisible.value = false
 })
 
-const errors = reactive({ 
-    name : "",
-    public_name : "",
-    public_name : "",
-    brand_image : "",
-    commercial_record : "",
-    commercial_record : "",
-    bank : "",
-    iban : "",
-    account_number : "",
-    tax_number : "",
-    type : "",
-    address : "",
-    status : "",
-})
 </script>
 
 <style lang="scss" scoped>
 
-</style>
+</style> 
