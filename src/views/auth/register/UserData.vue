@@ -1,6 +1,6 @@
 <template>
     <div class="w-1/3 flex justify-center m-auto user-form">
-        <div class="w-full  space-y-4  mt-12">
+        <div class="w-full  space-y-6  mt-12">
             <div class="grid grid-cols-2 gap-2">
                 <TextInput v-model = "registerationData.name" label = "اسم المستخدم" :errors = "inputsError.name"/>
                 <DateInput v-model = "registerationData.birth_date" label = 'تاريخ الميلاد' :errors = "inputsError.birth_date"/>

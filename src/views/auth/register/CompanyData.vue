@@ -1,6 +1,6 @@
 <template>
     <div class="w-1/3 flex justify-center m-auto">
-        <div class="w-full mt-20 space-y-5">
+        <div class="w-full mt-20 space-y-8">
             <TextInput v-model="registerationData.company_name" label = 'اسم الشركة' :errors="inputsError.company_name" />
             <TextInput v-model="registerationData.public_name" label = 'الاسم العام للشركة' :errors="inputsError.public_name"/>
             <TextInput v-model="registerationData.commercial_record" label = 'السجل التحاري  للشركة' :errors="inputsError.commercial_record"/>

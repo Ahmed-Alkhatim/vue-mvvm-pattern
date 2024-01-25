@@ -1,5 +1,5 @@
 <template>
-    <div class='mt-20'>
+    <div class='pt-20 h-screen'>
         <Stepper :currentStep="currentStep" />
         <RegisterType v-if="currentStep == 1" @complete="goToNextStep(2)" />
         <CompanyData v-if="currentStep == 2" @complete="goToNextStep(3)" />
