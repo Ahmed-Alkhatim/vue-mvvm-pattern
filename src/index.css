@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer components { 
+    .text-primary {
+        color: #5C8374 ;
+    }
     .absolute-center {
         @apply absolute bottom-1/2 right-1/2 translate-x-1/2 translate-y-1/2
     }
@@ -16,6 +19,7 @@
         @apply px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white
     }
 }
+
 
 html {
     overflow: hidden;

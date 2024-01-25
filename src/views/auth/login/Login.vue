@@ -6,11 +6,12 @@
             <h3 class="text-center text-[18px] font-bold">تسجيل الدخول</h3>
             <TextInput v-model = "userData.email" label="الايميل" :errors = 'errors.email'/>
             <PasswordInput v-model = "userData.password" label="كلمة المرور" :errors = 'errors.password'/>
-            <Btn @click = "logIn" size="medium" color = 'blue' class="inline-block w-full">{{ isLoading ? 'جاري تسجيل الدخول' : 'تسجيل الدخول' }}</Btn>
-            <p class="paragraph">ليس لديك حساب؟ <RouterLink to="/register"><span class="link sm:inline-flex sm:ms-2 ">تسجيل حساب جديد</span></RouterLink></p>
+            <Btn @click = "logIn" size="medium" color = 'primary' class="inline-block w-full">{{ isLoading ? 'جاري تسجيل الدخول' : 'تسجيل الدخول' }}</Btn>
+            <p class="paragraph text-primary">ليس لديك حساب؟ <RouterLink to="/register"><span class="link sm:inline-flex sm:ms-2 ">تسجيل حساب جديد</span></RouterLink></p>
             <RouterLink to="/password-reset"><span class="link">نسيت كلمة المرور</span></RouterLink>
         </Card>
     </div>
+    <!-- //TODO overwrite link styles in tailwind -->
 </template>
 
 <script setup>
