@@ -6,7 +6,7 @@
             <h3 class="text-center text-[18px] font-bold">تسجيل الدخول</h3>
             <TextInput v-model = "userData.email" label="الايميل" :errors = 'errors.email'/>
             <PasswordInput v-model = "userData.password" label="كلمة المرور" :errors = 'errors.password'/>
-            <Btn @click = "logIn" size="medium" color = 'primary' class="inline-block w-full">{{ isLoading ? 'جاري تسجيل الدخول' : 'تسجيل الدخول' }}</Btn>
+            <Btn @click = "logInUser" size="medium" color = 'primary' class="inline-block w-full">{{ isLoading ? 'جاري تسجيل الدخول' : 'تسجيل الدخول' }}</Btn>
             <p class="paragraph text-primary">ليس لديك حساب؟ <RouterLink to="/register"><span class="link sm:inline-flex sm:ms-2 ">تسجيل حساب جديد</span></RouterLink></p>
             <RouterLink to="/password-reset"><span class="link">نسيت كلمة المرور</span></RouterLink>
         </Card>
@@ -16,33 +16,33 @@
 
 <script setup>
 import { TextInput, PasswordInput,  Card, Btn } from "@/components"
-import { reactive } from "vue";
-import logo from "@/assets/images/logo.png"
-import { Auth } from "@/api"
 import { useRouter } from "vue-router";
+import logo from "@/assets/images/logo.png"
+import useDataStates from "./useDataStates";
+import useApiStates from "./useApiStates";
+import useUiStates from "./useUiStates";
+
 const router = useRouter()
-const userData = reactive({
-    password: null,
-    email : null,
-})
 
-const errors = reactive({
-    name: null,
-    email : null,
-})
+// UI | Data | API States
+const { userData } = useDataStates()
+const { logIn, onLoginSuccess, onLoginFailure, authData, wrongCredentials } = useApiStates()
+const { errors, setErrors } = useUiStates()
 
-Auth.on('loggedSuccess', (e) => {
-   localStorage.setItem('user', e.detail.user)
-   router.push('/')
-
-})
-Auth.on('loggingFail', (e) => {
-    Object.assign(errors, e.detail);
-});
-
-const logIn = () => {
-    Auth.login(userData)
+const logInUser = () => {
+    logIn(userData);
 }
+
+onLoginSuccess( () => {
+    localStorage.setItem('token', authData.token)
+    localStorage.setItem('user', authData.user)    
+    router.push('./')
+})
+
+onLoginFailure( () => {
+    console.log("Hi there", wrongCredentials);
+    setErrors(wrongCredentials)
+});
 
 </script>
 
