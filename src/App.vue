@@ -7,7 +7,7 @@ const { isBlankPage } = useConfig()
 </script>
 
 <template>
-  <div dir="rtl" class=" bg-stone-50">
+  <div dir="rtl" class=" bg-gray-50">
   <!-- <PageContainer v-if="isBlankPage"> -->
     <RouterView />
   </div>
