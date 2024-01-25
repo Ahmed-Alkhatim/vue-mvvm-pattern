@@ -4,7 +4,7 @@
             <EmailInput v-model = "registerationData.email" label = "الايميل" :errors = "inputsError.email"/>
             <PasswordInput v-model="registerationData.password" label = "كلمة المرور" :errors = "inputsError.password"/>
             <PasswordInput v-model="registerationData.password_confirmation" label=" اعادة كلمة المرور " :errors = "inputsError.password_confirmation"/>
-            <Btn class="w-full"  :class = "{ 'cursor-not-allowed opacity-50' : !canGoToNextStep}" size = "small" color = "primary" @click = "register()">تسجيل</Btn>
+            <Btn class="w-full"  :class = "{ 'cursor-not-allowed opacity-50' : !canGoToNextStep}" size = "medium" color = "primary" @click = "register()">تسجيل</Btn>
         </div>
     </div>
 </template>

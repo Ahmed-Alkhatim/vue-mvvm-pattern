@@ -4,7 +4,7 @@
             <TextInput v-model="registerationData.company_name" label = 'اسم الشركة' :errors="inputsError.company_name" />
             <TextInput v-model="registerationData.public_name" label = 'الاسم العام للشركة' :errors="inputsError.public_name"/>
             <TextInput v-model="registerationData.commercial_record" label = 'السجل التحاري  للشركة' :errors="inputsError.commercial_record"/>
-            <Btn class="w-full" :class = "{ 'cursor-not-allowed opacity-50' : !canGoToNextStep}" size = "small" color = "primary" @click = "saveData()">التالي</Btn>
+            <Btn class="w-full" :class = "{ 'cursor-not-allowed opacity-50' : !canGoToNextStep}" size = "medium" color = "primary" @click = "saveData()">التالي</Btn>
         </div>
     </div>
 </template>

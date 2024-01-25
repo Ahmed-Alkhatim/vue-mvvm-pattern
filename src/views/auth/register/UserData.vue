@@ -12,7 +12,7 @@
                 <TextInput v-model = "registerationData.id_number" label = "رقم الهوية" :errors = "inputsError.id_number"/>
             </div>
            
-            <Btn class="w-full"  :class = "{ 'cursor-not-allowed opacity-50' : !canGoToNextStep}" size = "small" color = "primary" @click = "saveData()">التالي</Btn>
+            <Btn class="w-full"  :class = "{ 'cursor-not-allowed opacity-50' : !canGoToNextStep}" size = "medium" color = "primary" @click = "saveData()">التالي</Btn>
         </div>
     </div>
 </template>
