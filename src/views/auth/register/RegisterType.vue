@@ -5,7 +5,7 @@
         </div>
         <div class = "flex justify-center">
             <Btn @click = "selectType('provider')" color="primary">مقدم خدمات</Btn>
-            <Btn @click = "selectType('consumer')" color="secondary">مستهلك</Btn>
+            <Btn @click = "selectType('consumer')" color="success">مستهلك</Btn>
         </div>
     </div>
 </template> 

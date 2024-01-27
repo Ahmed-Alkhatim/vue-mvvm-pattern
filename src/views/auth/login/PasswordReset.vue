@@ -5,9 +5,9 @@
             <img :src= "logo" class="w-20 h-20 block m-auto"/>
             <h3 class="text-center text-[18px] font-bold">استعادة كلمة المرور</h3>
             <TextInput v-model = "userData.email" label="الايميل" :error = 'errors.email'/>
-            <Btn size="medium" color = 'blue' class="inline-block w-full"> تأكيد</Btn>
-            <p class="paragraph">ليس لديك حساب؟ <RouterLink to="/register"><span class="link sm:inline-flex sm:ms-2 ">تسجيل حساب جديد</span></RouterLink></p>
-            <RouterLink to="login"><span class="link">تسجيل الدخول</span></RouterLink>
+            <Btn size="medium" color = 'primary' class="inline-block w-full"> تأكيد</Btn>
+            <p class="paragraph">ليس لديك حساب؟ <RouterLink to="/register"><span class="link sm:inline-flex sm:ms-2 font-bold">تسجيل حساب جديد</span></RouterLink></p>
+            <RouterLink to="login"><span class="link font-bold">تسجيل الدخول</span></RouterLink>
         </Card>
     </div>
 </template>

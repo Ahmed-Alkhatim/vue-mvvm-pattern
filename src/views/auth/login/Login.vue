@@ -7,8 +7,8 @@
             <TextInput v-model = "userData.email" label="الايميل" :errors = 'errors.email'/>
             <PasswordInput v-model = "userData.password" label="كلمة المرور" :errors = 'errors.password'/>
             <Btn @click = "logInUser" size="medium" color = 'primary' class="inline-block w-full">{{ isLoading ? 'جاري تسجيل الدخول' : 'تسجيل الدخول' }}</Btn>
-            <p class="paragraph text-primary">ليس لديك حساب؟ <RouterLink to="/register"><span class="link sm:inline-flex sm:ms-2 ">تسجيل حساب جديد</span></RouterLink></p>
-            <RouterLink to="/password-reset"><span class="link">نسيت كلمة المرور</span></RouterLink>
+            <p class="paragraph text-primary">ليس لديك حساب؟ <RouterLink to="/register"><span class="link sm:inline-flex sm:ms-2 font-bold"> أنشئ حساب الأن</span></RouterLink></p>
+            <RouterLink to="/password-reset"><span class="link font-bold"> نسيت كلمة المرور ؟</span></RouterLink>
         </Card>
     </div>
     <!-- //TODO overwrite link styles in tailwind -->
@@ -40,7 +40,6 @@ onLoginSuccess( () => {
 })
 
 onLoginFailure( () => {
-    console.log("Hi there", wrongCredentials);
     setErrors(wrongCredentials)
 });
 
