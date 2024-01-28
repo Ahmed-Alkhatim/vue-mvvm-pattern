@@ -35,8 +35,8 @@ const logInUser = () => {
 
 onLoginSuccess( () => {
     localStorage.setItem('token', authData.token)
-    localStorage.setItem('user', authData.user)    
-    router.push('./')
+    localStorage.setItem('user', JSON.stringify(authData.user))    
+    router.push('/')
 })
 
 onLoginFailure( () => {
