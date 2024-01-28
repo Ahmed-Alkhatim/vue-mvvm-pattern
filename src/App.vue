@@ -7,8 +7,8 @@ const { isBlankPage } = useConfig()
 </script>
 
 <template>
-  <div dir="rtl" class=" bg-stone-50">
-  <PageContainer v-if="isBlankPage">
+  <div dir="rtl" class="bg-gray-50">
+    <!-- <PageContainer v-if="isBlankPage"> -->
     <RouterView />
   </div>
 </template>
@@ -17,9 +17,9 @@ const { isBlankPage } = useConfig()
 html {
   font-family: mainF;
 }
+
 @font-face {
   font-family: mainF;
   src: url("./NeoSansArabic.ttf");
 }
-
 </style>

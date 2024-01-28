@@ -14,5 +14,7 @@ import Dialog from './ui/Dialog.vue'
 import PageContainer from "./PageContainer.vue"
 import Navbar from "./Navbar.vue"
 import Sidebar from "./Sidebar.vue"
+import ActionBtn from "./ui/ActionBtn.vue"
 
-export { TextInput, Card, Btn, RadioInput, DateInput, NumberInput, SelectInput, VTable, VTableRow, Dialog, PageContainer, Navbar, DropDown, Sidebar, PasswordInput, EmailInput }
+
+export { TextInput, Card, Btn, RadioInput, DateInput, NumberInput, SelectInput, VTable, VTableRow, Dialog, PageContainer, Navbar, DropDown, Sidebar, PasswordInput, EmailInput, ActionBtn }
