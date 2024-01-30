@@ -4,20 +4,17 @@
         <AddBranch />
     </div>
     <div>
-    <VTable :heads = "['الإسم ', 'الإسم العام', 'السجل التجاري', 'البنك', 'الآيبان ', 'رقم الحساب', 'الرقم الضريبي', 'قيمة الضريبة', 'النوع', 'العنوان ', 'الحالة'] ">
+    <VTable :heads = "['الإسم ', 'الإسم العام','العنوان ', 'الرصيد', '' ] ">
         <VTableRow v-for="branch in branchesStore.branches">
             <td>{{ branch.name }}</td>
             <td>{{ branch.public_name }}</td>
-            <td>{{ branch.brand_image }}</td>
-            <td>{{ branch.commercial_record }}</td>
-            <td>{{ branch.bank }}</td>
-            <td>{{ branch.iban }}</td>
-            <td>{{ branch.account_number }}</td>
-            <td>{{ branch.tax_number }}</td>
-            <td>{{ branch.tax_number }}</td>
-            <td>{{ branch.tax_value }}</td>
-            <td>{{ branch.type }}</td>
             <td>{{ branch.address }}</td>
+            <td>{{ branch.bank }}</td>
+            <td class="flex justify-end">
+                <ActionBtn type="view"/>
+                <ActionBtn type="edit"/>
+                <ActionBtn type="delete"/>
+            </td>
         </VTableRow>
     </VTable>
     </div>
@@ -25,7 +22,7 @@
 </template>
 
 <script setup>
-import { VTable, VTableRow } from "@/components"
+import { VTable, VTableRow, ActionBtn } from "@/components"
 import AddBranch from "./AddBranch.vue";
 import { useBranchesStore } from "@/stores";
 import useApiStates from "./useApiStates"
