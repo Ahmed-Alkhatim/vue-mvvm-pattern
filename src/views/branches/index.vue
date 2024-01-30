@@ -1,7 +1,7 @@
 <template>
 <PageContainer>
     <div>
-        <AddBranch />
+        <!-- <AddBranch /> -->
     </div>
     <div>
     <VTable :heads = "['الإسم ', 'الإسم العام','العنوان ', 'الرصيد', '' ] ">
@@ -25,17 +25,19 @@
 import { VTable, VTableRow, ActionBtn } from "@/components"
 import AddBranch from "./AddBranch.vue";
 import { useBranchesStore } from "@/stores";
-import useApiStates from "./useApiStates"
+import { useFetchApiStates } from "./useApiStates"
 import { onMounted } from "vue";
 import PageContainer from '@/components/PageContainer.vue';
 
 const branchesStore = useBranchesStore()
-const { getBranches } = useApiStates()
+const { fetchBranches, onFetchSuccess, onFetchFailure } = useFetchApiStates()
 
 onMounted( () => {
-    getBranches()
+    fetchBranches()
 })
 
+onFetchSuccess( () => {} )
+onFetchFailure( () => {} )
 
 </script>
 

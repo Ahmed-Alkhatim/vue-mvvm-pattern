@@ -6,13 +6,41 @@ class BranchApiClass extends EventTarget {
         this.addEventListener(event, callback)
     }
 
-    getBranches = async () => {
+    fetchBranches = async () => {
         const { response, error, getData } = useFetcher(useGet)
         await getData('./branches')
         if(response.value && response.value.status.code == 200) {
-            this.dispatchEvent(new CustomEvent('FetchedSuccessfully', { detail : response.value.data}))
+            this.dispatchEvent(
+                new CustomEvent(
+                    'fetchSuccess', { detail : response.value.data}
+                )
+            )
         } else if (error.value) {
-            this.dispatchEvent(new CustomEvent('errorOnFetch', { detail : error.value }))
+            this.dispatchEvent(
+                new CustomEvent(
+                    'fetchFailure', { detail : error.value }
+                )
+            )
+        }
+    }
+
+    addBranch = async(data) => {
+        const { response, error, getData } = useFetcher(usePost)
+        await getData()
+        if(response.value && response.value.status === 200) {
+            this.dispatchEvent(
+                new CustomEvent(
+                    'addSuccess', { detail : response.value.data }
+                )
+            )
+        }
+
+        else if( error.value) {
+            this.dispatchEvent(
+                new CustomEvent(
+                    'addFailure', { detail : error.value }
+                )
+            )
         }
     }
 
