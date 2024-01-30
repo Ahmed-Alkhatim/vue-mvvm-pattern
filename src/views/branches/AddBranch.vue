@@ -32,10 +32,12 @@ import { ref } from 'vue';
 import { Dialog, Btn, Card, TextInput } from "@/components"
 import useDataStates from './useDataStates';
 import { useAddApiStates } from "./useApiStates"
+import { useAddUiStates } from "./useUiStates"
 // UI States
 const isDialogVisible = ref(false)
 
 // API && Data States
+const { addInputsErrors } = useAddUiStates()
 const { addBranchData } = useDataStates() 
 const { addBranch, onAddSuccess, onAddFailure } = useAddApiStates()
 

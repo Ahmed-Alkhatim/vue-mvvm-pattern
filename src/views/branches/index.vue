@@ -1,7 +1,7 @@
 <template>
 <PageContainer>
     <div>
-        <!-- <AddBranch /> -->
+        <AddBranch />
     </div>
     <div>
     <VTable :heads = "['الإسم ', 'الإسم العام','العنوان ', 'الرصيد', '' ] ">
