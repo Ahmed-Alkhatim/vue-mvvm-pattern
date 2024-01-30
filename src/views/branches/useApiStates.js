@@ -14,11 +14,12 @@ const useFetchApiStates = () => {
     const onFetchSuccess = (callback) => { responseEvents.fetchSucceeded = callback }
     const onFetchFailure = (callback) => { responseEvents.fetchFailed = callback }
     
-    BranchApi.on('fetchSuccess', ({ detail }) => {
-        Object.assign(branchesData, detail)
+    BranchApi.on('fetchSuccess', (e) => {
+        console.log('detail', e.detail.data);
+        Object.assign(branchesData, e.detail.data)
         responseEvents.fetchSucceeded()
     })
-    BranchApi.on('fetchFailure', ({ detail }) => {
+    BranchApi.on('fetchFailure', (e) => {
         responseEvents.fetchFailed()
     })
 
@@ -27,7 +28,7 @@ const useFetchApiStates = () => {
         BranchApi.fetchBranches()
     }
 
-    return { fetchBranches, onFetchFailure, onFetchSuccess }
+    return { fetchBranches, onFetchFailure, onFetchSuccess, branchesData }
 }
 
 
