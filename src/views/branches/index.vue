@@ -12,7 +12,7 @@
             <td>{{ branch.bank }}</td>
             <td class="flex justify-end">
                 <ActionBtn type="view"/>
-                <ActionBtn type="edit"/>
+                <EditBranch :data = "branch" />
                 <ActionBtn type="delete"/>
             </td>
         </VTableRow>
@@ -24,19 +24,23 @@
 <script setup>
 import { VTable, VTableRow, ActionBtn } from "@/components"
 import AddBranch from "./AddBranch.vue";
+import EditBranch from "./EditBranch.vue";
 import { useBranchesStore } from "@/stores";
 import { useFetchApiStates } from "./useApiStates"
 import { onMounted } from "vue";
 import PageContainer from '@/components/PageContainer.vue';
 
 const branchesStore = useBranchesStore()
-const { fetchBranches, onFetchSuccess, onFetchFailure } = useFetchApiStates()
+const { fetchBranches, onFetchSuccess, onFetchFailure, branchesData } = useFetchApiStates()
 
 onMounted( () => {
     fetchBranches()
 })
 
-onFetchSuccess( () => {} )
+onFetchSuccess( () => {
+    branchesStore.setBranches(branchesData)
+})
+
 onFetchFailure( () => {} )
 
 </script>
