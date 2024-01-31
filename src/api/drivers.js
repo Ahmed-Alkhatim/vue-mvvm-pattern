@@ -6,6 +6,7 @@ class DriversApiClass extends EventTarget{
         super();
     }
 
+    on(event, callback){ this.addEventListener(event, callback)}
     fetchDrivers = async() => {
         const { response, error, getData } = useFetcher(useGet)
         await getData("/drivers")
@@ -14,7 +15,7 @@ class DriversApiClass extends EventTarget{
             this.dispatchEvent(
                 new CustomEvent(
                     'fetchSuccess',
-                    { detail: response.value.data }
+                    { detail: error.value }
                 )
             )
         }
@@ -22,7 +23,7 @@ class DriversApiClass extends EventTarget{
             this.dispatchEvent(
                 new CustomEvent(
                     'fetchFailure',
-                    { detail: response.value.data }
+                    { detail: error.value }
                 )
             )
         }
@@ -36,7 +37,7 @@ class DriversApiClass extends EventTarget{
             this.dispatchEvent(
                 new CustomEvent(
                     'addSuccess',
-                    { detail: response.value.data }
+                    { detail: error.value }
                 )
             )
         }
@@ -44,7 +45,7 @@ class DriversApiClass extends EventTarget{
             this.dispatchEvent(
                 new CustomEvent(
                     'addFailure',
-                    { detail: response.value.data }
+                    { detail: error.value }
                 )
             )
         }
@@ -58,7 +59,7 @@ class DriversApiClass extends EventTarget{
             this.dispatchEvent(
                 new CustomEvent(
                     'deleteSuccess',
-                    { detail: response.value.data }
+                    { detail: error.value }
                 )
             )
         }
@@ -67,7 +68,7 @@ class DriversApiClass extends EventTarget{
             this.dispatchEvent(
                 new CustomEvent(
                     'deleteFailure',
-                    { detail: response.value.data }
+                    { detail: error.value }
                 )
             )
         }
@@ -77,3 +78,4 @@ class DriversApiClass extends EventTarget{
 
 
 const DriversApi = new DriversApiClass();
+export default DriversApi;
