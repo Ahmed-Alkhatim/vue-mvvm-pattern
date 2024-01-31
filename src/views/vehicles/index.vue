@@ -22,7 +22,7 @@
 import { VTable, VTableRow } from '@/components';
 import { useVehiclesStore } from '@/stores';
 import AddVehicle from "./AddVehicle.vue"
-import useApiStates from './useApiStates';
+import { useFetchApiStates } from './useApiStates';
 import { onMounted } from 'vue';
 import PageContainer from '@/components/PageContainer.vue';
 
@@ -30,14 +30,17 @@ import PageContainer from '@/components/PageContainer.vue';
 const vehiclesStore = useVehiclesStore()
 
 // UI | Data | API states
-const { fetchVehicles, onFetchFailure, onFetchSuccess } = useApiStates()
+const { fetchVehicles, onFetchFailure, onFetchSuccess, vehicles } = useFetchApiStates()
 
 // Functions
 onMounted( () => {
     fetchVehicles()
 })
 
-onFetchSuccess( () => {})
+onFetchSuccess( () => {
+    vehiclesStore.setVehicles(vehicles)
+})
+
 onFetchFailure( () => {})
 
 </script>
