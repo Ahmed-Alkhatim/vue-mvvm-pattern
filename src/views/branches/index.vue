@@ -34,7 +34,7 @@ const branchesStore = useBranchesStore()
 const { fetchBranches, onFetchSuccess, onFetchFailure, branchesData } = useFetchApiStates()
 
 onMounted( () => {
-    fetchBranches()
+    // fetchBranches()
 })
 
 onFetchSuccess( () => {

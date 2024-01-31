@@ -4,7 +4,6 @@
         <template #activator>
             <ActionBtn type="edit"/>
         </template>
-        {{ editBranchData }}
         <Card title="تعديل فرع"  class="space-y-5 w-[600px]">
             <TextInput v-model = "editBranchData.name" label="الإسم " :error="addInputsErrors.name"/>
             <TextInput v-model = "editBranchData.public_name" label="الإسم العام" :error="addInputsErrors.public_name"/>
@@ -33,15 +32,17 @@ import { Dialog, Btn, Card, TextInput, ActionBtn } from "@/components"
 import useDataStates from './useDataStates';
 import { useAddApiStates } from "./useApiStates"
 import { useAddUiStates } from "./useUiStates"
+
+const props = defineProps(['data'])
+const editBranchData = ref(props.data)
 // UI States
 const isDialogVisible = ref(false)
 
 // 
 
-const props = defineProps(['data'])
 // API && Data States
 const { addInputsErrors } = useAddUiStates()
-const { editBranchData, setEditBranchData } = useDataStates() 
+const { setEditBranchData } = useDataStates() 
 const { onAddSuccess, onAddFailure } = useAddApiStates()
 
 onAddSuccess( (data) => {
