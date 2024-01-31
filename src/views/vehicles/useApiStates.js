@@ -34,9 +34,8 @@ const useFetchApiStates = () => {
     return { fetchVehicles, onFetchSuccess, onFetchFailure, vehicles }
 };
 
-
 // ----------------------------------------------------------------
-const useAddVehiclesStates = () => {
+const useAddApiStates = () => {
 
 /* States */
     const addContentErrors = reactive({})
@@ -64,4 +63,29 @@ const useAddVehiclesStates = () => {
 
     return { addVehicle, onAddSuccess, onAddFailure, addContentErrors }
 }
-export { useFetchApiStates, useAddVehiclesStates }
+
+// ----------------------------------------------------------------
+const useEditApiStates = () => {
+    
+    // States
+    const contentErrors = reactive({})
+    const responsesEvents = {
+        editSucceeded: () => {},
+        editFailed: () => {},
+    }
+
+    // Events
+    VehiclesApi.on('editSuccess', () => {})
+    VehiclesApi.on('editFailure', () => {})
+
+    const onEditSuccess = () => {};
+    const onEditFailure = () => {};
+
+    // Methods
+    const editVehicle = (data) => {
+        VehiclesApi.editVehicle()
+    }
+    
+    return { editVehicle ,onEditSuccess, onEditFailure, contentErrors }
+}
+export { useFetchApiStates, useAddApiStates, useEditApiStates }
