@@ -1,45 +1,49 @@
 import { reactive } from "vue";
 import { UsersApi } from "../../api";
 
-const useApiStates = () => {
+export const useFetchApiStates = () => {
+    // States
+    const responseEvents  = reactive({
+        fetchSucceeded : () => {},
+        fetchFailed : () => {},
+    })
 
     // Events
-    const responseEvents = reactive({
-        userNotAdded : () => {},
-        userAdded : () => {},
-        usersNotFetched : () => {},
-        usersFetched : () => {},
-    })
-    const onFetchUsersSuccess = (callback) => { responseEvents.usersFetched = callback}
-    const onFetchUsersFailure = (callback) => { responseEvents.usersNotFetched = callback}
+    const onFetchSuccess = (callback) => { responseEvents.fetchSucceeded = callback }
+    const onFetchFailure = (callback) => { responseEvents.fetchFailed = callback }
 
-    const onAddUserSuccess = (callback) => { responseEvents.userAdded = callback}
-    const onAddUserFailure = (callback) => { responseEvents.userNotAdded = callback}
-
-    UsersApi.on('fetchSuccess', () => {
-        responseEvents.usersFetched()
-    })
-    UsersApi.on('fetchFailure', () => {
-        responseEvents.usersNotFetched()
-    });
-
-    UsersApi.on('addUserSuccess', () => {
-        responseEvents.userAdded()
-    });
-    UsersApi.on('addUserFailure', () => {
-        responseEvents.userNotAdded()
-    });
+    UsersApi.on('fetchSuccess', () => {})
+    UsersApi.on('fetchFailure', () => {})
 
     // Methods
+
     const fetchUsers = () => {
         UsersApi.fetchUsers()
     }
 
-    const addUser = (data) => {
-        UsersApi.addUser(data)
-    }
-
-    return { fetchUsers, onFetchUsersSuccess, onFetchUsersFailure, onAddUserSuccess, onAddUserFailure, addUser }
+    return { fetchUsers, onFetchSuccess, onFetchFailure }
 }
 
-export default useApiStates
+export const useAddApiStates = () => {
+    // States
+    const contentError = reactive({})
+    const responseEvents = reactive({
+        addSucceeded : () => {},
+        addFailed : () => {},
+    })
+
+    // Events
+    const onAddSuccess = (callback) => { responseEvents.addSucceeded = callback }
+    const onAddFailure = (callback) => { responseEvents.addFailed = callback }  
+
+    UsersApi.on('addSuccess', () => {})
+    UsersApi.on('addFailure', () => {})
+
+    // Methods
+
+    const addUser = (user) => {
+        UsersApi.addUser(user)
+    }
+
+    return { addUser, onAddSuccess, onAddFailure, contentError }
+}
