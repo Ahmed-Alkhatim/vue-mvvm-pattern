@@ -42,12 +42,14 @@ class DriversApiClass extends EventTarget{
             )
         }
         else if(error.value) {
-            this.dispatchEvent(
-                new CustomEvent(
-                    'addFailure',
-                    { detail: error.value }
+            if(error.value?.response?.status == 422){
+                this.dispatchEvent(
+                    new CustomEvent(
+                        'addFailure',
+                        { detail: error.value?.response?.data }
+                    )
                 )
-            )
+            }
         }
     }
 

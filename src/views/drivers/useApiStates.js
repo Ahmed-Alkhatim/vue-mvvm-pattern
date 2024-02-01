@@ -34,8 +34,9 @@ export const useFetchApiStates = () => {
     return { fetchDrivers, onFetchSuccess, onFetchFailure, drivers }
 }
 
-export const useAddApiStates = () => {
+export const  useAddApiStates = () => {
     // states
+    const contentError = reactive({})
     const responsesEvents = reactive({
         addSucceeded : () => {},
         addFailed : () => {},
@@ -45,13 +46,16 @@ export const useAddApiStates = () => {
     const onAddSuccess = (callback) => { responsesEvents.addSucceeded = callback }
     const onAddFailure = (callback) => { responsesEvents.addFailed = callback }
 
-    DriversApi.on('addSuccess', () => {})
-    DriversApi.on('addFailure', () => {})
+    DriversApi.on('addSuccess', (e) => {})
+    DriversApi.on('addFailure', (e) => {
+        Object.assign(contentError, e.detail.errors)
+        responsesEvents.addFailed()
+    })
 
     // Methods
     const addDriver = (data) => {
         DriversApi.addDriver(data)
     }
 
-    return { addDriver, onAddSuccess, onAddFailure }
+    return { addDriver, onAddSuccess, onAddFailure, contentError }
 }
