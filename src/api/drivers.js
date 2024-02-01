@@ -15,7 +15,7 @@ class DriversApiClass extends EventTarget{
             this.dispatchEvent(
                 new CustomEvent(
                     'fetchSuccess',
-                    { detail: error.value }
+                    { detail: response.value.data.data }
                 )
             )
         }
@@ -37,7 +37,7 @@ class DriversApiClass extends EventTarget{
             this.dispatchEvent(
                 new CustomEvent(
                     'addSuccess',
-                    { detail: error.value }
+                    { detail: response.value.data }
                 )
             )
         }
@@ -59,7 +59,7 @@ class DriversApiClass extends EventTarget{
             this.dispatchEvent(
                 new CustomEvent(
                     'deleteSuccess',
-                    { detail: error.value }
+                    { detail: response.value.data }
                 )
             )
         }

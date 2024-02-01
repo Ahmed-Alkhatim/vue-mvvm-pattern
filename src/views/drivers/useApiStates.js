@@ -11,7 +11,7 @@ export const useFetchApiStates = () => {
 
     // Events
 
-    const onFetchSuccess = (callback) => { responsesEvents.fetchFailed = callback }
+    const onFetchSuccess = (callback) => { responsesEvents.fetchSucceeded = callback }
     const onFetchFailure = (callback) => { responsesEvents.fetchFailed = callback }
 
     DriversApi.on('fetchSuccess', (e) => {
