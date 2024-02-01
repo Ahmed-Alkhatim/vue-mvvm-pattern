@@ -1,5 +1,6 @@
 import { reactive } from "vue"
 import { DriversApi } from "@/api"
+
 export const useFetchApiStates = () => {
     
     // States
@@ -33,3 +34,24 @@ export const useFetchApiStates = () => {
     return { fetchDrivers, onFetchSuccess, onFetchFailure, drivers }
 }
 
+export const useAddApiStates = () => {
+    // states
+    const responsesEvents = reactive({
+        addSucceeded : () => {},
+        addFailed : () => {},
+    })
+
+    // Events
+    const onAddSuccess = (callback) => { responsesEvents.addSucceeded = callback }
+    const onAddFailure = (callback) => { responsesEvents.addFailed = callback }
+
+    DriversApi.on('addSuccess', () => {})
+    DriversApi.on('addFailure', () => {})
+
+    // Methods
+    const addDriver = (data) => {
+        DriversApi.addDriver(data)
+    }
+
+    return { addDriver, onAddSuccess, onAddFailure }
+}
