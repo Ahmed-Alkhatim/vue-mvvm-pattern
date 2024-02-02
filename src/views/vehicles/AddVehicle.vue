@@ -31,11 +31,11 @@ import { reactive, ref } from "vue"
 import { Dialog, Btn, Card, TextInput, SelectInput } from "@/components"
 import useUiStates from "./useUiStates"
 import useDataStates from "./useDataStates";
-import useApiStates from "./useApiStates"
+import { useAddApiStates } from "./useApiStates"
 // UI | Data | API states
 const { isAddDialogVisible, setAddDialogVisibility, inputsErrors, setInputsErrors } = useUiStates()
 const { addVehiclesData } = useDataStates()
-const { addVehicle, onAddSuccess, onAddFailure, addContentErrors }  = useApiStates()
+const { addVehicle, onAddSuccess, onAddFailure, addContentErrors }  = useAddApiStates()
 
 // Functions
 const add = () => {

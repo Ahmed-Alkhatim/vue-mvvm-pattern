@@ -2,53 +2,90 @@ import { useVehiclesStore } from "@/stores"
 import { VehiclesApi } from "../../api";
 import { reactive, ref } from "vue";
 
-const useApiStates = () => { 
-    // Stores
-    const vehiclesStore = useVehiclesStore()
-    const addContentErrors = reactive({})
+// ----------------------------------------------------------------
+const useFetchApiStates = () => { 
 
-// Events
+/* States */
+    const vehicles = reactive({}) 
     const responsesEvents = reactive({
         fetchSucceeded : () => {},
         fetchFailed : () => {},
-        addSucceeded : () => {},
-        addFailed : () => {},
     })
 
     const onFetchSuccess = (callback) => { responsesEvents.fetchSucceeded = callback }
     const onFetchFailure = (callback) => { responsesEvents.fetchFailed = callback }
-    const onAddSuccess = (callback) => { responsesEvents.addSucceeded = callback }
-    const onAddFailure = (callback) => { responsesEvents.addFailed = callback }
+   
 
-    /* Fetch Vehicles */
+/* Events */
     VehiclesApi.on('fetchSuccess', (e) => {
-        vehiclesStore.setVehicles(e.detail)
+        Object.assign(vehicles, e.detail?.data)
         responsesEvents.fetchSucceeded()
     })
     VehiclesApi.on('fetchFailure', (e) => {
         responsesEvents.fetchFailed()
     });
+  
 
-    /* Add Vehicles */
-    VehiclesApi.on('addSuccess', (e) => {
-        responsesEvents.addSucceeded()
-    })
-    VehiclesApi.on('addFailure', (e) => {
-        console.log('I have failed to add');
-        Object.assign(addContentErrors, { name : "name Error"})
-        responsesEvents.addFailed()
-    });
-
-// Methods
+/* Methods */
     const fetchVehicles = () => {
         VehiclesApi.fetchVehicles()
     }
 
+    return { fetchVehicles, onFetchSuccess, onFetchFailure, vehicles }
+};
+
+// ----------------------------------------------------------------
+const useAddApiStates = () => {
+
+/* States */
+    const addContentErrors = reactive({})
+    const responsesEvents = {
+        addSucceeded : () => {},
+        addFailed : () => {},
+    }
+
+/* Events */
+    const onAddSuccess = (callback) => { responsesEvents.addSucceeded = callback }
+    const onAddFailure = (callback) => { responsesEvents.addFailed = callback }
+
+    VehiclesApi.on('addSuccess', (e) => {
+        responsesEvents.addSucceeded()
+    })
+    VehiclesApi.on('addFailure', (e) => {
+        Object.assign(addContentErrors, e.detail.errors)
+        responsesEvents.addFailed()
+    });
+
+/* Methods */
     const addVehicle = (data) => {
         VehiclesApi.addVehicle(data)
     }
-    return { fetchVehicles, onFetchSuccess, onFetchFailure, addVehicle, onAddSuccess, onAddFailure, addContentErrors }
-};
 
+    return { addVehicle, onAddSuccess, onAddFailure, addContentErrors }
+}
 
-export default useApiStates
+// ----------------------------------------------------------------
+const useEditApiStates = () => {
+    
+    // States
+    const contentErrors = reactive({})
+    const responsesEvents = {
+        editSucceeded: () => {},
+        editFailed: () => {},
+    }
+
+    // Events
+    VehiclesApi.on('editSuccess', () => {})
+    VehiclesApi.on('editFailure', () => {})
+
+    const onEditSuccess = () => {};
+    const onEditFailure = () => {};
+
+    // Methods
+    const editVehicle = (data) => {
+        VehiclesApi.editVehicle()
+    }
+    
+    return { editVehicle ,onEditSuccess, onEditFailure, contentErrors }
+}
+export { useFetchApiStates, useAddApiStates, useEditApiStates }
