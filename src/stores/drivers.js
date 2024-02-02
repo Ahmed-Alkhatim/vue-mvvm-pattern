@@ -17,5 +17,6 @@ export const useDriversStore = defineStore( "drivers", () => {
     const setDrivers = (data) => {
         drivers.value = data
     }
+    
     return { drivers, setDrivers}
 })
