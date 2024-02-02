@@ -4,14 +4,13 @@
             <Btn size="small" color="primary">إضافة مستخدم</Btn>
         </template>
         <Card  class="space-y-5 w-[600px]" title = "إضافة مستخدم">
-            <TextInput v-model="addUserData.name" label="الإسم" :error="errors.name"/> 
+            <TextInput v-model="user.name" label="الإسم" :errors="inputErrors.name"/> 
 
-            <SelectInput v-model="addUserData.userable_type" label="النوع" 
+            <SelectInput v-model="user.userable_type" label="النوع" 
                 :options="[{ id : 'manager', value : 'مدير'}, { id : 'supervisor', value : 'مشرف'}, { id : 'employee', value : 'موظف'}]"
-                :error="errors.userable_type"
+                :errors="inputErrors.userable_type"
             />
-
-            <TextInput v-model="addUserData.email" label="الايميل" :error="errors.email"/>  
+            <TextInput v-model="user.email" label="الايميل" :errors="inputErrors.email"/>  
             <div class = "flex justify-end">
                 <div class = "mt-4">
                     <Btn size = "small" color = "primary" @click = "add()">إضافة</Btn>
@@ -26,27 +25,25 @@
 import { reactive, ref } from 'vue';
 import { TextInput, SelectInput, Btn, Card, Dialog} from '@/components';
 import useDataStates from "./useDataStates"
-import useApiStates from './useApiStates';
+import { useAddApiStates } from './useApiStates';
 import useUiStates from "./useUiStates"
 
-// UI | Data | API states
+// States 
+const inputErrors = reactive({ name : "", email : "", userable_type : "" })
+const user = reactive({  name : "", email : "", userable_type : ""})
+
+// UI  - Data - API => composable
 const { isAddDialogVisible, setAddDialogVisibility } = useUiStates()
-const { addUserData } = useDataStates()
-const { addUser, onAddUserSuccess, onAddUserFailure } = useApiStates()
+const { addUser, onAddFailure, onAddSuccess, contentError } = useAddApiStates()
 
 const add = () => {
-    addUser(addUserData)
+    addUser(user)
 }
 
-onAddUserSuccess( () => { setAddDialogVisibility(false) })
-onAddUserFailure( () => {})
-
-const errors = reactive({
-    name : "",
-    email : "",
-    userable_type : "",
+onAddSuccess( () => { setAddDialogVisibility(false) })
+onAddFailure( () => { 
+    Object.assign( inputErrors, contentError )
 })
-
 
 </script>
 
