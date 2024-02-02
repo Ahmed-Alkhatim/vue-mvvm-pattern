@@ -1,43 +1,62 @@
 import { reactive } from "vue";
-import { useBranchesStore} from "@/stores"
 import { BranchApi } from "@/api";
-import useDataStates from "./useDataStates";
 
-const useApiStates = () => {
-    // Stores
-    const branchesStore = useBranchesStore()
-
+const useFetchApiStates = () => {
     // Data
-    const { addBranchData } = useDataStates()
-    
-    // States
-    const addInputsErrors = reactive({  name : "", public_name : "", public_name : "", brand_image : "", commercial_record : "", commercial_record : "", bank : "", iban : "", account_number : "", tax_number : "", type : "", address : "", status : ""})
-    
+    const branchesData = reactive({})
+    // States 
+    const responseEvents = reactive({
+        fetchSucceeded : () => {},
+        fetchFailed : () => {},
+    })
+
     // Events
-    BranchApi.on('FetchedSuccessfully', (data) => {
-        branchesStore.setBranches(data)
+    const onFetchSuccess = (callback) => { responseEvents.fetchSucceeded = callback }
+    const onFetchFailure = (callback) => { responseEvents.fetchFailed = callback }
+    
+    BranchApi.on('fetchSuccess', (e) => {
+        console.log('detail', e.detail.data);
+        Object.assign(branchesData, e.detail.data)
+        responseEvents.fetchSucceeded()
     })
-    BranchApi.on('errorOnFetch', (data) => {
-        
-    })
-    BranchApi.on('AddSuccess', (data) => {
-        afterAddingBranch()
+    BranchApi.on('fetchFailure', (e) => {
+        responseEvents.fetchFailed()
     })
 
     // Methods
-    const getBranches = () => {
-        BranchApi.getBranches()
+    const fetchBranches = () => {
+        BranchApi.fetchBranches()
     }
 
-    const addBranch = () => {
-        BranchApi.addBranch(addBranchData)
-    }
-    const afterAddingBranch = (callback) => { callback() }
-    
-    // Callbacks
-   
-
-    return { getBranches, addBranch, addInputsErrors, afterAddingBranch }
+    return { fetchBranches, onFetchFailure, onFetchSuccess, branchesData }
 }
 
-export default useApiStates
+
+const useAddApiStates = () => {
+
+    // States
+    const responseEvents = reactive({
+        addSucceeded : () => {},
+        addFailed : () => {},
+    })
+
+    // Events
+    const onAddSuccess = (callback) => { responseEvents.addSucceeded = callback }
+    const onAddFailure = (callback) => { responseEvents.addFailed = callback }
+
+    BranchApi.on('addSuccess', () => {
+        responseEvents.addSucceeded()
+    })
+    BranchApi.on('addFailure', () => {
+        responseEvents.addFailed()
+    })
+
+    // Methods
+    const addBranch = async(data) => {
+        await BranchApi.addBranch(data)
+    }
+
+    return { addBranch, onAddSuccess, onAddFailure  }
+}
+
+export { useFetchApiStates, useAddApiStates }

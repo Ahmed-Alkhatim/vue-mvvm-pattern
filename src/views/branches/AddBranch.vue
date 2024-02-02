@@ -19,7 +19,7 @@
             <TextInput v-model = "addBranchData.status" label="النوع" :error="addInputsErrors.status"/>
             <div class = "flex justify-end">
                 <div class = "mt-4">
-                    <Btn @click = "addBranch" size = "small" color = "primary">إضافة</Btn>
+                    <Btn @click = "add" size = "small" color = "primary">إضافة</Btn>
                     <Btn @click = "isDialogVisible = false" size = "small" color = "secondary">إلغاء</Btn>
                 </div>
             </div>
@@ -28,20 +28,30 @@
 </template>
 
 <script setup>
-import { reactive, ref } from 'vue';
-import { Dialog, Btn, Card, TextInput, DateInput, NumberInput } from "@/components"
+import { ref } from 'vue';
+import { Dialog, Btn, Card, TextInput } from "@/components"
 import useDataStates from './useDataStates';
-import useApiStates from "./useApiStates"
+import { useAddApiStates } from "./useApiStates"
+import { useAddUiStates } from "./useUiStates"
 // UI States
 const isDialogVisible = ref(false)
 
 // API && Data States
+const { addInputsErrors } = useAddUiStates()
 const { addBranchData } = useDataStates() 
-const { addInputsErrors, addBranch, afterAddingBranch } = useApiStates()
+const { addBranch, onAddSuccess, onAddFailure } = useAddApiStates()
 
-afterAddingBranch( () => {
+onAddSuccess( (data) => {
     isDialogVisible.value = false
 })
+
+onAddFailure( () => {
+
+})
+
+const add = async() => {
+    await addBranch(addBranchData)
+}
 
 </script>
 

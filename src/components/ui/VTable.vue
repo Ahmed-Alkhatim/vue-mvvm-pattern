@@ -25,6 +25,6 @@ const props =  defineProps(["heads"])
 
 <style  >
 table td {
-    padding: 16px 24px;
+    padding: 8px 16px;
 }
 </style>
